@@ -72,36 +72,26 @@
 </section>
 <section class="section section-dark" id="experience">
 <div class="section-head"><div><p class="eyebrow">EXPÉRIENCES</p><h2>DU TERRAIN<br/>À <em>L’ORGANISATION.</em></h2></div></div>
-<div class="vinyl-experience" id="vinylExperience">
-  <div class="vinyl-stage">
-    <span class="sticker sticker-dour"><small>STICKER / 01</small><br/>DOUR<br/>FESTIVAL</span>
-    <span class="sticker sticker-ardentes"><small>STICKER / 02</small><br/>LES<br/>ARDENTES</span>
-    <span class="sticker sticker-ronquieres"><small>STICKER / 03</small><br/>RONQUIÈRES</span>
-    <span class="sticker sticker-uckelair"><small>STICKER / 04</small><br/>UCKELAIR</span>
-    <button class="vinyl-button" id="vinylToggle" type="button" aria-label="Faire tourner le vinyle et changer d’expérience" aria-pressed="false">
-      <span class="vinyl-disc"><span class="vinyl-label"><b>FACE A</b><small>EXPÉRIENCES PRO</small><i>▶</i></span></span>
-      
-    </button>
-    <button class="vinyl-face-switch" id="vinylFaceSwitch" type="button">VOIR LA DEUXIÈME FACE ↗</button>
+<div class="experience-sleeves" id="vinylExperience">
+  <div class="sleeve-intro"><p>FACE A — EXPÉRIENCES PROFESSIONNELLES</p><p>FACE B — BÉNÉVOLAT FESTIVAL</p><span>CHOISIS UNE POCHETTE POUR ÉCOUTER L’HISTOIRE ↗</span></div>
+  <div class="sleeve-grid">
+    <button class="record-sleeve pro" data-record="ardentes" type="button"><span class="sleeve-index">01 / STAGE</span><span class="sleeve-art art-ardentes">LES<br>ARDENTES</span><strong>LES ARDENTES</strong><small>COMMUNICATION · 2026</small></button>
+    <button class="record-sleeve pro" data-record="chant" type="button"><span class="sleeve-index">02 / JOB ÉTUDIANT</span><span class="sleeve-art art-chant">CHANT<br>D’ÉOLE</span><strong>CHANT D’ÉOLE</strong><small>HOSPITALITY · 2025—</small></button>
+    <button class="record-sleeve pro" data-record="conception" type="button"><span class="sleeve-index">03 / ÉVÉNEMENT</span><span class="sleeve-art art-conception">LA<br>CONCEPTION</span><strong>LA CONCEPTION</strong><small>COMMUNICATION & OPS</small></button>
+    <button class="record-sleeve volunteer" data-record="dour" type="button"><span class="sleeve-index">04 / BÉNÉVOLAT</span><span class="sleeve-art art-dour">DOUR<br>FESTIVAL</span><strong>DOUR FESTIVAL</strong><small>2026 · TERRAIN</small></button>
+    <button class="record-sleeve volunteer" data-record="uckelair" type="button"><span class="sleeve-index">05 / BÉNÉVOLAT</span><span class="sleeve-art art-uckelair">UCKELAIR</span><strong>UCKELAIR FESTIVAL</strong><small>2025 · TERRAIN</small></button>
+    <button class="record-sleeve volunteer" data-record="ronquieres" type="button"><span class="sleeve-index">06 / BÉNÉVOLAT</span><span class="sleeve-art art-ronquieres">RONQUIÈRES</span><strong>RONQUIÈRES FESTIVAL</strong><small>2024 · TERRAIN</small></button>
   </div>
-  <div class="vinyl-info">
-    <p class="eyebrow" id="vinylEyebrow">FACE A / EXPÉRIENCES PROFESSIONNELLES</p>
-    <div class="vinyl-panel is-active" id="vinylPro">
-      <p class="tag">STAGE · COMMUNICATION & CONTENU · 2026</p><h3>LES ARDENTES</h3>
-      <p>Mon stage aux Ardentes m’a fait passer de l’autre côté du festival : communication du camping, contenus, réseaux sociaux et coordination avant et pendant l’événement.</p>
-      <ul><li>Gestion de communauté et contenus pour les réseaux sociaux</li><li>Communication et information du camping</li><li>Création de contenu et propositions éditoriales</li><li>Coordination et organisation de projets sur site</li></ul>
-      <p class="vinyl-extra"><strong>CHANT D’ÉOLE</strong> — accueil, service, opérations bar et soutien aux événements dans un environnement hospitality.</p>
-      <p class="vinyl-extra"><strong>LA CONCEPTION</strong> — responsable communication & opérations : événement complet, 200+ invités, 30 modèles, 9 créateurs.</p>
-    </div>
-    <div class="vinyl-panel" id="vinylVolunteer" hidden>
-      <p class="tag">FACE B · BÉNÉVOLAT FESTIVAL</p><h3>LES COULISSES, CÔTÉ TERRAIN.</h3>
-      <p>Trois expériences bénévoles qui m’ont permis de participer à la vie des festivals autrement qu’en tant que spectatrice.</p>
-      <div class="festival-sticker-list"><span>DOUR FESTIVAL <b>2026</b></span><span>UCKELAIR FESTIVAL <b>2025</b></span><span>RONQUIÈRES FESTIVAL <b>2024</b></span></div>
-      <p class="vinyl-extra">Et côté public : Ronquières (5 éditions), Scène sur Sambre (3 éditions), Les Ardentes (2025) et Les Solidarités.</p>
-    </div>
-    <p class="vinyl-switch-note">Le disque change de face. Les expériences aussi.</p>
+  <p class="sleeve-footnote">+ DE 200 ARTISTES VUS EN CONCERT · 3 FESTIVALS VÉCUS CÔTÉ BÉNÉVOLAT</p>
+</div>
+<dialog class="record-dialog" id="recordDialog" aria-labelledby="recordTitle">
+  <div class="record-dialog-inner">
+    <button class="record-close" type="button" aria-label="Fermer">×</button>
+    <div class="record-visual"><div class="modal-vinyl"><div class="modal-vinyl-label" id="recordLabel">FACE A</div></div><span class="record-side" id="recordSide">SIDE A / WORK EXPERIENCE</span></div>
+    <div class="record-details"><p class="tag" id="recordTag">STAGE · 2026</p><h3 id="recordTitle">LES ARDENTES</h3><div id="recordDescription"></div></div>
   </div>
-</div></section>
+</dialog>
+</section></section>
 <section class="section cream" id="work">
 <div class="section-head">
 <div><p class="eyebrow dark">PROJETS SÉLECTIONNÉS</p><h2>DES IDÉES<br/><em>AU CONCRET.</em></h2></div>
@@ -308,28 +298,27 @@ At its core, Women2Women is about creating a space where young women can exchang
 
 <script>
 (function(){
- const button=document.getElementById('vinylToggle');
- const faceSwitch=document.getElementById('vinylFaceSwitch');
- const pro=document.getElementById('vinylPro');
- const volunteer=document.getElementById('vinylVolunteer');
- const eyebrow=document.getElementById('vinylEyebrow');
- if(!button||!pro||!volunteer)return;
- const switchFace=()=>{
-   const showVolunteer=button.getAttribute('aria-pressed')!=='true';
-   button.setAttribute('aria-pressed',String(showVolunteer));
-   button.classList.add('is-spinning');
-   window.setTimeout(()=>button.classList.remove('is-spinning'),720);
-   pro.hidden=showVolunteer; volunteer.hidden=!showVolunteer;
-   pro.classList.toggle('is-active',!showVolunteer); volunteer.classList.toggle('is-active',showVolunteer);
-   eyebrow.textContent=showVolunteer?'FACE B / BÉNÉVOLAT FESTIVAL':'FACE A / EXPÉRIENCES PROFESSIONNELLES';
-   const label=button.querySelector('.vinyl-label b');
-   const sub=button.querySelector('.vinyl-label small');
-   label.textContent=showVolunteer?'FACE B':'FACE A';
-   sub.textContent=showVolunteer?'BÉNÉVOLAT':'EXPÉRIENCES PRO';
-   if(faceSwitch)faceSwitch.textContent=showVolunteer?'REVENIR AUX EXPÉRIENCES PRO ↗':'VOIR LA DEUXIÈME FACE ↗';
+ const dialog=document.getElementById('recordDialog');
+ if(!dialog)return;
+ const records={
+  ardentes:{side:'SIDE A / PROFESSIONAL EXPERIENCE',label:'FACE A',tag:'STAGE · COMMUNICATION & CONTENU · 2026',title:'LES ARDENTES',body:'<p>Mon stage aux Ardentes m’a fait passer de l’autre côté du festival : communication du camping, contenus, réseaux sociaux et coordination avant et pendant l’événement.</p><ul><li>Gestion de communauté et contenus pour les réseaux sociaux</li><li>Communication et information du camping</li><li>Création de contenu et propositions éditoriales</li><li>Coordination et organisation de projets sur site</li></ul>'},
+  chant:{side:'SIDE A / PROFESSIONAL EXPERIENCE',label:'FACE A',tag:'JOB ÉTUDIANT · DEPUIS AOÛT 2025',title:'CHANT D’ÉOLE',body:'<p>Au sein de l’équipe hospitality et événementielle : accueil du public, service, opérations bar et soutien au bon déroulement des événements.</p><ul><li>Accueil et orientation des visiteurs</li><li>Service et gestion des opérations bar</li><li>Travail d’équipe dans un environnement événementiel rythmé</li></ul>'},
+  conception:{side:'SIDE A / PROFESSIONAL EXPERIENCE',label:'FACE A',tag:'RESPONSABLE COMMUNICATION & OPÉRATIONS',title:'LA CONCEPTION',body:'<p>Un événement construit de la conception à la réalisation, avec une responsabilité à la fois communication et opérationnelle.</p><ul><li>Événement sold out</li><li>Plus de 200 invités</li><li>30 modèles · 9 créateurs</li><li>Coordination des besoins et du déroulement</li></ul>'},
+  dour:{side:'SIDE B / VOLUNTEERING',label:'FACE B',tag:'BÉNÉVOLAT · 2026',title:'DOUR FESTIVAL',body:'<p>Une première expérience bénévole au Dour Festival, en 2026. Une édition qui m’a permis de m’impliquer dans l’événement au-delà du rôle de festivalière.</p>'},
+  uckelair:{side:'SIDE B / VOLUNTEERING',label:'FACE B',tag:'BÉNÉVOLAT · 2025',title:'UCKELAIR FESTIVAL',body:'<p>Une expérience bénévole supplémentaire dans un festival, au contact du terrain et de l’organisation.</p>'},
+  ronquieres:{side:'SIDE B / VOLUNTEERING',label:'FACE B',tag:'BÉNÉVOLAT · 2024',title:'RONQUIÈRES FESTIVAL',body:'<p>Bénévole en 2024, après plusieurs éditions vécues comme festivalière. Ronquières fait partie des rendez-vous qui ont construit ma culture festival.</p><p>J’y suis également venue comme festivalière à cinq éditions.</p>'}
  };
- button.addEventListener('click',switchFace);
- if(faceSwitch)faceSwitch.addEventListener('click',switchFace);
+ document.querySelectorAll('[data-record]').forEach(card=>card.addEventListener('click',()=>{
+  const r=records[card.dataset.record]; if(!r)return;
+  document.getElementById('recordSide').textContent=r.side;
+  document.getElementById('recordLabel').textContent=r.label;
+  document.getElementById('recordTag').textContent=r.tag;
+  document.getElementById('recordTitle').textContent=r.title;
+  document.getElementById('recordDescription').innerHTML=r.body;
+  dialog.showModal();
+ }));
+ dialog.querySelector('.record-close').addEventListener('click',()=>dialog.close());
+ dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
 })();
 </script>
 </body>
