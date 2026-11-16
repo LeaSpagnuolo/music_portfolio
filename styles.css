@@ -5422,3 +5422,63 @@ body{background:var(--olive);color:var(--ink);background-image:radial-gradient(r
  .work-item .work-caption p,.work-item .conception-side-copy{font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){.work-item{animation:none!important;transition:none!important}}
+
+/* V5 — desktop scale, poster proportions and contextual decoration */
+/* Keep circular shapes only where they have a clear meaning (the vinyl and gallery controls). */
+.section::after,
+.section::before,
+.hero::after,
+#about::after,
+#work::before,
+#work::after,
+#festivals::before,
+#festivals::after,
+#contact::before,
+#contact::after{content:none!important;display:none!important}
+/* A confident desktop canvas: larger posters, readable copy and no miniature tiles. */
+@media (min-width: 851px){
+  #work{padding-left:clamp(64px,7vw,130px)!important;padding-right:clamp(64px,7vw,130px)!important}
+  #work .section-head{max-width:1600px;margin-left:auto;margin-right:auto;gap:clamp(32px,4vw,76px)}
+  #work .work-grid{max-width:1600px;margin:0 auto;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:clamp(48px,5vw,84px) clamp(34px,4vw,66px)!important}
+  #work .work-item{min-width:0;width:100%;padding:clamp(20px,2vw,30px)!important}
+  #work .work-item>h3{font-size:clamp(32px,3vw,52px)!important;line-height:.94!important;margin:10px 0 20px!important}
+  #work .work-item .image-placeholder{min-height:clamp(380px,34vw,560px)!important}
+  #work .work-item.large .image-placeholder{min-height:clamp(480px,39vw,650px)!important}
+  #work .work-item .work-caption{padding:22px 8px 10px!important}
+  #work .work-item .work-caption p,#work .work-item .conception-side-copy{font-size:clamp(15px,1.1vw,18px)!important;line-height:1.6!important}
+  #work .work-item .work-caption span{font-size:10px!important;padding:7px 10px!important}
+  #work .filters button{font-size:12px!important;padding:9px 12px!important}
+  #work .work-item.large{grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr)!important}
+}
+@media (min-width: 1500px){
+  #work .work-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:90px 76px!important}
+  #work .work-item .image-placeholder{min-height:570px!important}
+  #work .work-item.large .image-placeholder{min-height:680px!important}
+}
+/* Pink remains a paper/sticker accent, never an unexplained floating bubble. */
+.hero-sticker-count{border-radius:0!important;clip-path:polygon(2% 0,98% 3%,100% 96%,0 100%)!important;box-shadow:5px 6px 0 var(--ink)!important}
+.hero-sticker-live,.hero-sticker-note,.hero-sticker-ticket{border-radius:0!important}
+#work .work-item:after{border-radius:0!important}
+@media (max-width:850px){
+  #work .work-grid{grid-template-columns:1fr!important;max-width:720px;margin:0 auto;gap:42px!important}
+  #work .work-item .image-placeholder,#work .work-item.large .image-placeholder{min-height:clamp(280px,58vw,430px)!important}
+}
+@media (max-width:520px){
+  #work .work-item .image-placeholder,#work .work-item.large .image-placeholder{min-height:250px!important}
+  #work .work-item>h3{font-size:clamp(25px,8vw,34px)!important}
+}
+
+/* V6 — half-record display with a dedicated, clear face-switch control */
+#experience .vinyl-stage{min-height:460px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;padding:34px 18px;}
+#experience .vinyl-button{width: min(190px, 42%);height:340px;aspect-ratio:auto;overflow:hidden;display:block;filter:none;}
+#experience .vinyl-disc{width:340px;height:340px;max-width:none;position:relative;left:0;transform-origin:50% 50%;}
+#experience .vinyl-button.is-spinning .vinyl-disc{transform:rotate(720deg);}
+#experience .vinyl-button .vinyl-label{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
+#experience .vinyl-face-switch{position:relative;z-index:5;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 20px;background:var(--hotpink);color:var(--ink);border:2px solid var(--ink);box-shadow:5px 5px 0 var(--paper);font:800 11px var(--mono);letter-spacing:.06em;cursor:pointer;transition:transform .2s,box-shadow .2s;}
+#experience .vinyl-face-switch:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--paper);}
+#experience .vinyl-button{cursor:pointer;}
+#experience .vinyl-button:focus-visible,#experience .vinyl-face-switch:focus-visible{outline:3px solid var(--pink);outline-offset:5px;}
+#experience .vinyl-stage .sticker{max-width:34%;}
+@media(min-width:1100px){#experience .vinyl-experience{grid-template-columns:minmax(300px,.85fr) minmax(0,1.15fr);gap:clamp(50px,8vw,130px);}#experience .vinyl-stage{min-height:520px;}#experience .vinyl-button{height:390px;width:210px;}#experience .vinyl-disc{width:390px;height:390px;}#experience .vinyl-info{max-width:760px;}#experience .vinyl-panel{padding:clamp(26px,3vw,42px);}}
+@media(max-width:850px){#experience .vinyl-stage{min-height:420px;}#experience .vinyl-button{height:280px;width:155px;}#experience .vinyl-disc{width:280px;height:280px;}}
+@media(max-width:520px){#experience .vinyl-stage{min-height:380px;padding:26px 12px;}#experience .vinyl-button{height:230px;width:128px;}#experience .vinyl-disc{width:230px;height:230px;}#experience .vinyl-face-switch{font-size:10px;padding:12px 14px;}}

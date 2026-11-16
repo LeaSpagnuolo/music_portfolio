@@ -80,8 +80,9 @@
     <span class="sticker sticker-uckelair"><small>STICKER / 04</small><br/>UCKELAIR</span>
     <button class="vinyl-button" id="vinylToggle" type="button" aria-label="Faire tourner le vinyle et changer d’expérience" aria-pressed="false">
       <span class="vinyl-disc"><span class="vinyl-label"><b>FACE A</b><small>EXPÉRIENCES PRO</small><i>▶</i></span></span>
-      <span class="vinyl-hint">CLIQUE POUR RETOURNER LE DISQUE ↻</span>
+      
     </button>
+    <button class="vinyl-face-switch" id="vinylFaceSwitch" type="button">VOIR LA DEUXIÈME FACE ↗</button>
   </div>
   <div class="vinyl-info">
     <p class="eyebrow" id="vinylEyebrow">FACE A / EXPÉRIENCES PROFESSIONNELLES</p>
@@ -308,11 +309,12 @@ At its core, Women2Women is about creating a space where young women can exchang
 <script>
 (function(){
  const button=document.getElementById('vinylToggle');
+ const faceSwitch=document.getElementById('vinylFaceSwitch');
  const pro=document.getElementById('vinylPro');
  const volunteer=document.getElementById('vinylVolunteer');
  const eyebrow=document.getElementById('vinylEyebrow');
  if(!button||!pro||!volunteer)return;
- button.addEventListener('click',()=>{
+ const switchFace=()=>{
    const showVolunteer=button.getAttribute('aria-pressed')!=='true';
    button.setAttribute('aria-pressed',String(showVolunteer));
    button.classList.add('is-spinning');
@@ -324,7 +326,10 @@ At its core, Women2Women is about creating a space where young women can exchang
    const sub=button.querySelector('.vinyl-label small');
    label.textContent=showVolunteer?'FACE B':'FACE A';
    sub.textContent=showVolunteer?'BÉNÉVOLAT':'EXPÉRIENCES PRO';
- });
+   if(faceSwitch)faceSwitch.textContent=showVolunteer?'REVENIR AUX EXPÉRIENCES PRO ↗':'VOIR LA DEUXIÈME FACE ↗';
+ };
+ button.addEventListener('click',switchFace);
+ if(faceSwitch)faceSwitch.addEventListener('click',switchFace);
 })();
 </script>
 </body>
