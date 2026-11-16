@@ -1,19 +1,25 @@
-# Léa Spagnuolo — Portfolio musique & festivals (V4)
+# Léa Spagnuolo — Portfolio musique & festivals (V5)
 
 ## Fichiers
 - `index.html`
 - `styles.css`
 - `app.js`
 - `CV_Lea_Spagnuolo.pdf`
-- `Media/` : ajoute ici les photos et vidéos originales du portfolio.
+- `Media/` : dossier à ajouter avec les photos et vidéos originales.
 
-## Mise en ligne
-Créer un dépôt GitHub distinct, par exemple `portfolio-musique`, puis téléverser le contenu de ce dossier à la racine du dépôt. Conserver les noms et la casse des fichiers. Activer GitHub Pages depuis `main` et `/(root)`.
-
-## Direction artistique V4
-Palette olive, rose pastel, rose fluo, papier et noir. La bande damier est désactivée. La section « Projets sélectionnés » utilise des cartes-affiches papier avec ruban adhésif, textures, inclinaisons et animations légères. Les ajustements responsive couvrent ordinateur, tablette et téléphone.
-
-Les noms des festivals sont utilisés comme stickers typographiques provisoires : ils ne remplacent pas les logos officiels. Ajouter uniquement les médias et logos dont tu disposes et que tu es autorisée à utiliser.
+## Identité visuelle
+Ce portfolio possède une identité indépendante de CHERRY LINE / motorsport.
+Palette : rose fluo `#FF39B8`, rose pastel `#F4A9CA`, olive `#78813B`,
+vert pastel `#B8C49A`, noir `#111111`, beige `#E9E1D2` et blanc.
+Direction : énergie festival, affiches, stickers, compositions en collage,
+typographie expressive et contrastes francs. Aucun bordeaux, rouge cerise
+ou code visuel motorsport.
 
 ## Médias
-Le dossier `Media/` contient un README d'instructions. Les médias personnels doivent être ajoutés à cet emplacement en respectant les chemins configurés dans `app.js`.
+Les médias conservent leur format d'origine et ne sont pas recadrés de force.
+Ajoute le dossier `Media/` à la racine du projet en conservant les noms de
+fichiers attendus par `app.js`.
+
+## Mise en ligne
+Téléverse le contenu du dossier à la racine d'un dépôt GitHub distinct,
+puis active GitHub Pages depuis `main` et `/(root)`.

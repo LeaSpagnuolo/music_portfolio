@@ -5955,3 +5955,142 @@ body{background:var(--paper)!important;color:var(--ink)!important}
  .hero-copy>.buttons .btn{font-size:6.5px!important}
  .skill-columns,.how-grid{grid-template-columns:1fr!important}
 }
+
+
+
+/* =========================================================
+   FESTIVAL IDENTITY V5 — deliberately separate from CHERRY LINE
+   Palette: fluorescent/pastel pink, olive/pastel green, paper,
+   black and white. No burgundy, cherry red or motorsport motifs.
+   ========================================================= */
+:root{
+  --pink:#FF39B8;
+  --pink-soft:#F4A9CA;
+  --olive:#78813B;
+  --green-soft:#B8C49A;
+  --ink:#111111;
+  --paper:#E9E1D2;
+  --white:#FFFFFF;
+  --festival-accent:var(--pink);
+  --festival-shadow:rgba(17,17,17,.22);
+}
+html{scroll-behavior:smooth}
+body{background:var(--ink)!important;color:var(--white)!important}
+.nav{background:rgba(17,17,17,.94)!important;border-bottom:1px solid rgba(255,255,255,.18)!important}
+.brand span,.hero-text-block h1 em,.hero h1 em{color:var(--pink)!important}
+nav a:after,.filters button.active{border-color:var(--pink)!important}
+.section.cream,.cream{background:var(--paper)!important;color:var(--ink)!important}
+.section-dark{background:var(--ink)!important;color:var(--white)!important}
+.festival-accent{
+  background:var(--olive)!important;
+  color:var(--white)!important;
+}
+.festival-accent h2 em,.festival-accent h1 em{color:var(--pink)!important}
+.festival-accent .eyebrow,.festival-accent .tag{color:var(--white)!important}
+.festival-accent .contact-open{color:var(--white)!important}
+.festival-accent .contact-links a{color:var(--white)!important}
+.festival-accent .contact-cta{background:var(--pink)!important;color:var(--ink)!important;border-color:var(--ink)!important}
+.festival-accent .contact-panel{background:var(--paper)!important;color:var(--ink)!important}
+.festival-accent .contact-panel-head,
+.festival-accent .contact-panel a,
+.festival-accent .contact-link-label,
+.festival-accent .contact-link-label strong{color:var(--ink)!important}
+.festival-accent .contact-index{color:var(--olive)!important}
+.festival-accent .contact-panel a{border-color:rgba(17,17,17,.25)!important}
+.festival-accent .contact-graphic{border-color:rgba(255,255,255,.3)!important}
+.festival-accent .contact-graphic-word,.festival-accent .contact-graphic-code{color:var(--white)!important}
+.btn-light{background:var(--pink)!important;color:var(--ink)!important;border-color:var(--ink)!important}
+.btn-outline{border-color:var(--white)!important;color:var(--white)!important}
+.btn:hover,.contact-cta:hover{transform:translateY(-3px)}
+.work-item{position:relative}
+.work-item:before{background:var(--pink)!important}
+.work-item .image-placeholder{background:#d8d0c1!important;border-color:rgba(17,17,17,.35)!important;color:#514d45!important}
+.filters button.active,.content-sub.active,.content-sub:hover{color:var(--olive)!important;border-color:var(--olive)!important}
+.about-media .image-placeholder,.w2w-media .image-placeholder{background:#d8d0c1!important}
+.skill-columns>div:after,.how-grid>div:before{background:var(--pink)!important}
+.how-grid b{color:var(--olive)!important}
+.languages span,.skill-line span{border-color:currentColor!important}
+.experience-sleeves{position:relative}
+.record-sleeve{box-shadow:7px 8px 0 rgba(17,17,17,.25)!important}
+.record-sleeve.pro{background:var(--pink-soft)!important;color:var(--ink)!important}
+.record-sleeve.volunteer{background:var(--green-soft)!important;color:var(--ink)!important}
+.record-sleeve .sleeve-art{border:1px solid rgba(17,17,17,.5)!important}
+.record-sleeve:hover{transform:translateY(-7px) rotate(-1deg)!important}
+.festival-sticker{border:1px solid var(--ink)!important;box-shadow:5px 6px 0 var(--festival-shadow)!important}
+.sticker-dour{background:var(--pink)!important}
+.sticker-ardentes{background:var(--paper)!important}
+.sticker-ronquieres{background:var(--green-soft)!important}
+.sticker-uckelair{background:var(--pink-soft)!important}
+.festival-intro{display:grid;grid-template-columns:1.2fr .8fr;gap:7vw;align-items:end;margin:0 0 65px}
+.festival-intro>p{font-size:clamp(19px,2vw,28px);line-height:1.3;max-width:780px}
+.festival-keywords{display:flex;flex-wrap:wrap;gap:9px;justify-content:flex-end}
+.festival-keywords span{font:600 9px var(--mono);letter-spacing:.1em;padding:9px 11px;border:1px solid rgba(255,255,255,.65);background:rgba(255,57,184,.16)}
+.festival-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.festival-grid article{background:var(--paper)!important;color:var(--ink)!important;padding:clamp(20px,2.5vw,34px)!important;min-width:0;transform:rotate(-.6deg);box-shadow:7px 8px 0 rgba(17,17,17,.2)}
+.festival-grid article:nth-child(2){transform:rotate(1deg);background:var(--pink-soft)!important}
+.festival-grid article:nth-child(3){transform:rotate(-.4deg);background:var(--green-soft)!important}
+.festival-grid article .tag{color:var(--olive)!important}
+.festival-grid article h3{font-size:clamp(20px,2.4vw,34px)!important;line-height:1.02}
+.festival-grid article p{color:var(--ink)!important}
+.festival-attendance{border-top:1px solid rgba(255,255,255,.5)!important;margin-top:55px;padding-top:22px}
+.festival-label{display:flex;flex-direction:column;align-items:flex-end;gap:3px;font:500 9px var(--mono);letter-spacing:.12em}
+.festival-label span{opacity:.7}
+.contact .contact-links a{color:var(--white)!important}
+.contact .contact-cta{display:inline-flex!important}
+.contact .contact-open i{background:var(--pink)!important}
+.contact .availability-cards>div{background:var(--paper)!important;color:var(--ink)!important;border:1px solid var(--ink)!important;box-shadow:5px 5px 0 rgba(17,17,17,.18)!important}
+.contact .availability-cards small,.contact .availability-cards span{color:var(--olive)!important}
+.section::after{border-color:rgba(255,57,184,.13)!important}
+.checker-rail{display:none!important}
+body:before,body:after{display:none!important}
+
+/* Preserve original media proportions: no forced crop on user content. */
+.image-placeholder img,.image-placeholder video,
+.work-item img,.work-item video,
+.about-carousel-slide img,.about-carousel-slide video,
+.content-carousel-slide img,.content-carousel-slide video{
+  object-fit:contain!important;
+}
+.image-placeholder{overflow:hidden}
+.media-managed-host,.content-carousel-host{max-width:100%}
+.content-carousel-stage{max-width:100%}
+.content-carousel-slide{background:#111!important}
+.content-carousel-slide img,.content-carousel-slide video{object-fit:contain!important}
+.about-carousel-viewport{overflow:hidden}
+.about-carousel-slide{background:#111!important}
+.about-carousel-slide img,.about-carousel-slide video{width:100%;height:100%;object-fit:contain!important}
+
+/* Responsive layout: stack media and text cleanly, keep controls usable. */
+@media(max-width:850px){
+  .festival-intro{grid-template-columns:1fr;gap:24px}
+  .festival-keywords{justify-content:flex-start}
+  .festival-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .nav{height:62px!important}
+  .section{padding:78px 6vw!important}
+  .hero.section-dark{padding-top:88px!important}
+  .hero-main-row{grid-template-columns:1fr!important;gap:22px!important}
+  .hero-main-row .hero-visual{max-width:100%!important;width:100%!important}
+  .hero-text-block h1{font-size:clamp(54px,15vw,92px)!important}
+  .hero-text-block h1 em{white-space:normal!important;overflow-wrap:anywhere!important}
+  .hero-main-row .hero-visual .image-placeholder,
+  .hero-main-row .hero-visual .image-placeholder img,
+  .hero-main-row .hero-visual .image-placeholder video{aspect-ratio:4/3!important;min-height:0!important}
+  .festival-stickers{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .festival-sticker{min-width:0!important}
+  .about-layout,.split{grid-template-columns:1fr!important;gap:28px!important}
+  .festival-grid{grid-template-columns:1fr!important;gap:22px!important}
+  .festival-grid article{transform:none!important}
+  .festival-keywords{justify-content:flex-start}
+  .contact .availability-cards{grid-template-columns:1fr!important}
+  .contact .contact-cta{width:100%;justify-content:space-between}
+  .skill-columns,.how-grid{grid-template-columns:1fr 1fr!important}
+  .work-grid{grid-template-columns:1fr!important}
+  .work-item.large{grid-column:auto!important}
+}
+@media(max-width:420px){
+  .hero-text-block h1{font-size:clamp(48px,14vw,64px)!important}
+  .skill-columns,.how-grid{grid-template-columns:1fr!important}
+  .festival-sticker b{font-size:12px!important}
+}
