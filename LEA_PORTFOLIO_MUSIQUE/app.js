@@ -1,0 +1,1548 @@
+const defaultText={"heroLead":"Étudiante en relations publiques, tournée vers la musique live et la production de festivals.","heroMeta":"STAGE 1 · 9 SEMAINES DÈS LE 22 MARS 2027 / STAGE 2 · DISPONIBLE DÈS JUIN 2027","about1":"Je suis étudiante en troisième année de Relations Publiques à Bruxelles. Mon terrain de jeu : la musique live, les festivals et tout ce qui se construit autour d’un événement, avant l’ouverture des portes comme une fois le public arrivé.","about2":"J’ai vu plus de 200 artistes en concert. J’ai aussi connu les festivals côté public, côté bénévolat et côté équipe communication. Trois façons différentes de vivre un même événement — et de comprendre ce qui le fait tenir.","about3":"Aux Ardentes, j’ai travaillé sur la communication et les contenus. À côté, mes expériences en événementiel m’ont appris le contact avec le public, le rythme du terrain et l’importance des détails.","about4":"Je souhaite aujourd’hui développer mes compétences dans la production artistique et l’organisation de concerts et de festivals.","ardentes":"Mon stage aux Ardentes m’a fait passer de l’autre côté du festival : communication du camping, contenus, réseaux sociaux et coordination avant et pendant l’événement.","chant":"Je travaille au Chant d’Éole dans un environnement mêlant accueil, horeca et événements. Un poste polyvalent qui demande du professionnalisme, de l’écoute et une bonne lecture des besoins du public.","motoIntro":"Plus de 200 artistes vus en concert. Des festivals vécus côté public, puis côté terrain. Cette fréquentation nourrit ma connaissance de la scène live, des publics et de l’énergie propre aux événements musicaux.","conception":"Responsable communication & opérations · Complet · 200+ invités · 30 modèles · 9 créateurs","conceptionDescription":"La Conception est un défilé que j’ai imaginé et organisé avec une équipe de cinq personnes. En tant que responsable communication et opérations, j’ai coordonné l’équipe, participé à la logistique et assuré la promotion de l’événement : une édition complète à guichets fermés, avec plus de 200 invités, 30 modèles et 9 créateurs.","conceptionCategory":"ÉVÉNEMENTIEL / COMMUNICATION","women":"Women2Women est un programme international qui rassemble de jeunes femmes autour du leadership, de l’échange interculturel et de l’engagement. J’ai participé au programme en ligne en 2022, puis au programme à Boston en 2025, où j’ai rejoint le réseau des alumni. Cette expérience m’a permis de gagner en confiance, de rencontrer des personnes aux parcours variés et de développer un projet concret : mon premier podcast, Sisterhood Stories.","womenIntro":"Women2Women est un programme international qui rassemble de jeunes femmes autour du leadership, de l’échange interculturel et de l’engagement. Les rencontres et discussions permettent de confronter les points de vue, de découvrir d’autres parcours et de créer des liens au-delà des frontières.","womenDevelopment":"Le programme encourage chacune à prendre sa place, à partager son expérience et à réfléchir à la manière dont elle peut contribuer à sa communauté.","womenTakeaway":"J’ai participé au programme en ligne en 2022, puis au programme à Boston en 2025, où j’ai rejoint le réseau des alumni. Cette expérience m’a permis de gagner en confiance, de rencontrer des personnes aux parcours variés et de développer un projet concret : mon premier podcast, Sisterhood Stories.","journalismTitle1":"INTERVIEW BENITOWSHOW","journalismText1":"Interview en studio autour d’un groupe de musique belge. J’ai préparé la présentation, les questions et les informations nécessaires pour guider l’échange.","journalismTitle2":"INTERVIEW AVERAGE ROB","journalismText2":"Interview en anglais d’Average Rob lors d’un événement philanthropique à Bruxelles organisé par la Fondation Roi Baudouin. J’étais accréditée pour créer du contenu et interviewer plusieurs intervenants.","podcastTitle":"PODCAST","podcastText":"Deux projets, deux formats, avec une même envie : ouvrir des conversations, partager des idées et donner de la place aux expériences personnelles.","sportTitle":"CONTENU SPORTIF","sportText":"Des vlogs autour de ma pratique sportive aux contenus réalisés les jours de match, notamment des stories Instagram pour l’équipe de basket de mon école.","schoolTitle":"CONTENU POUR L’ÉCOLE","schoolText":"Création de contenus pour le Conseil étudiant, afin de rendre les informations plus accessibles et engageantes. Réalisation également de vlogs utilisés pour présenter le cursus de Relations Publiques.","spaTag":"SPA-FRANCORCHAMPS · 2025","spaTitle":"FORMULA 1\nRACE WEEKEND","spaText":"My first Belgian Grand Prix in 2025 introduced me to the support races beyond Formula 1 and made me fall in love with the Spa-Francorchamps circuit. I captured the experience through photography and a YouTube vlog.","twentyFourTag":"SPA-FRANCORCHAMPS · 2026","twentyFourTitle":"24 HOURS\nOF SPA","twentyFourText":"I spent three days at the 2026 24 Hours of Spa with my best friend, capturing the atmosphere through photography and content creation. Being able to get close to the cars and explore the garages made the experience even more special.","podcast1Title":"Brut.e","podcast2Title":"Sisterhood stories","podcast1":"Brut.e est un podcast personnel autour des émotions, du développement personnel et des réalités de la vie. Des conversations avec des proches et des réflexions en solo pour aborder des sujets parfois difficiles, parfois légers.","podcast2":"Né du programme Women2Women, Sisterhood Stories donne la parole aux femmes pour partager leurs histoires, leurs expériences et leurs difficultés. Le projet cherche à créer un espace d’écoute, de soutien et de sororité.","creativeTitle":"CONTENU CRÉATIF","creativeText":"Des projets personnels en photo, vidéo et formats courts pour explorer la narration visuelle."};
+
+const defaultSkills={
+  categories:[
+    {name:"COMMUNICATION",items:["Relations publiques","Communication événementielle","Communication digitale","Gestion de communauté","Storytelling","Journalisme"]},
+    {name:"CONTENU",items:["Photo · Vidéo · Formats courts et longs","Montage vidéo","Retouche photo","Réseaux sociaux","Voix off"]},
+    {name:"ÉVÉNEMENTIEL",items:["Gestion de projet événementiel","Coordination sur le terrain","Expérience du public","Accueil et hospitalité","Expérience de marque","Contenu avant, pendant et après l’événement","Coordination de partenaires"]},
+    {name:"OUTILS",items:["Adobe Creative Suite","Premiere Pro","Canva","Notion","CapCut","Outils d’IA","Microsoft 365","Réseaux sociaux"]}
+  ],
+  languages:["FR - LANGUE MATERNELLE","EN - COURANT","ES - INTERMÉDIAIRE","NL - NOTIONS"]
+};
+
+const defaultHow=[
+  {number:"01",title:"CURIEUSE",text:"J’aime comprendre un projet et son univers avant de participer à sa réalisation."},
+  {number:"02",title:"CRÉATIVE",text:"Je cherche des idées, des angles visuels et des façons de donner une identité forte à un projet."},
+  {number:"03",title:"ADAPTABLE",text:"Je peux passer de la préparation à la création, puis à la mise en œuvre sur le terrain."},
+  {number:"04",title:"À L’ÉCOUTE",text:"J’aime travailler en équipe, échanger avec les publics et contribuer à une bonne dynamique collective."}
+];
+
+const mediaKeys=["hero","about","ardentes","chant","conception","journalism1","journalism2","podcast","podcast1","podcast2","sport1","sport2","school1","school2","spa","24h","w2w"];
+const aliases={
+  conception:["conception","event2"],
+  sport1:["sport1","content1"]
+};
+const STATIC_MEDIA={
+  'hero':["Media/hero1.jpeg"],
+  'about':["Media/about1.jpeg", "Media/about2.jpeg", "Media/About3.jpeg", "Media/About4.jpeg"],
+  'ardentes':["Media/Ardentes.jpeg"],
+  'chant':["Media/chant.jpeg"],
+  'conception':["Media/laconception.mp4"],
+  'journalism1':["Media/journalism1.mp4"],
+  'journalism2':["Media/Journalism2.mov"],
+  'sport1':["Media/Sportcontent1.mov", "Media/Sportcontent2.mov", "Media/Sportcontent3.mov", "Media/Sportcontent4.mov", "Media/Sportcontent5.mp4", "Media/sportcontent6.mp4", "Media/Sportcontent7.mov"],
+  'school1':["Media/Schoolcontent1.mp4", "Media/Schoolcontent2.png", "Media/Schoolcontent3.mov", "Media/Schoolcontent3.png", "Media/Schoolcontent4.png", "Media/Schoolcontent5.mov", "Media/Schoolcontent6.mp4"],
+  'w2w':["Media/W2W.mp4"],
+  'spa':["Media/GPSPA1.jpeg", "Media/GPSPA2.jpeg", "Media/GPSPA3.jpeg", "Media/GPSPA4.jpeg", "Media/GPSPA5.jpeg"],
+  '24h':["Media/24HSPA1.jpeg", "Media/24HSPA2.jpeg", "Media/24HSPA3.jpeg", "Media/24HSPA4.jpeg"]
+};
+
+// YouTube-hosted videos embedded directly into CHERRY LINE to avoid large local video files.
+const YOUTUBE_MEDIA = {
+  conception: [{ id:"JKFGwq4qybk", ratio:"16 / 9", label:"La Conception" }],
+  journalism1: [{ id:"SLS5mmtpwQY", ratio:"16 / 9", label:"Interview Benitow" }],
+  journalism2: [{ id:"lPQAl4Bwrjo", ratio:"9 / 16", label:"Interview Average Rob" }],
+  sport1: [
+    { id:"ZQB1K4hWO2s", ratio:"9 / 16", label:"Sport Content 1" },
+    { instagramUrl:"https://www.instagram.com/reel/DZDJh-vs02H/", ratio:"9 / 16", label:"Sport Content 3 — Instagram Reel" }
+  ],
+  school1: [{ id:"RlB6fXD5CFQ", ratio:"9 / 16", label:"School Content vlog" }],
+  w2w: [{ id:"Qc660Zu_hZI", ratio:"16 / 9", label:"Women2Women Boston" }]
+};
+
+
+
+let state=JSON.parse(localStorage.getItem("leaCherryLine")||"null")||{text:{},media:{}};
+state.text={...defaultText,...(state.text||{})}; for(const [k,v] of Object.entries(defaultText)){if(typeof state.text[k]!=="string"||!state.text[k].trim())state.text[k]=v;}
+state.media=state.media||{};
+state.skills=state.skills||JSON.parse(JSON.stringify(defaultSkills));
+if(!Array.isArray(state.skills.categories)||!state.skills.categories.length){state.skills.categories=JSON.parse(JSON.stringify(defaultSkills.categories));}
+if(!Array.isArray(state.skills.languages)){state.skills.languages=[...defaultSkills.languages];}
+state.skills.categories=state.skills.categories.map(c=>({name:String(c?.name||"CATEGORY"),items:Array.isArray(c?.items)?c.items.map(String).filter(Boolean):[]}));
+state.skills.languages=state.skills.languages.map(String).filter(Boolean);
+// Recover default skill content if an old browser backup contains empty categories.
+if(!state.skills.categories.some(c=>c.name && c.items.length)) state.skills.categories=JSON.parse(JSON.stringify(defaultSkills.categories));
+if(!state.skills.languages.length) state.skills.languages=[...defaultSkills.languages];
+state.how=(Array.isArray(state.how)&&state.how.length)?state.how:JSON.parse(JSON.stringify(defaultHow));
+state.how=state.how.map((x,i)=>({number:String(x?.number||defaultHow[i]?.number||String(i+1).padStart(2,"0")),title:String(x?.title||defaultHow[i]?.title||""),text:String(x?.text||defaultHow[i]?.text||"")})).filter(x=>x.title||x.text);
+if(!state.how.length) state.how=JSON.parse(JSON.stringify(defaultHow));
+// One-time content migration: keep all existing media, but replace the former motorsport copy and English skill labels.
+if(state.portfolioVersion!=="music-festivals-v1"){
+  ["heroLead","heroMeta","about1","about2","about3","about4","ardentes","chant","conception","conceptionDescription","conceptionCategory","women","womenIntro","womenDevelopment","womenTakeaway","journalismText1","journalismText2","podcastText","sportTitle","sportText","schoolTitle","schoolText","podcast1","podcast2","creativeTitle","creativeText"].forEach(key=>{if(defaultText[key]!==undefined)state.text[key]=defaultText[key];});
+  state.skills=JSON.parse(JSON.stringify(defaultSkills));
+  state.how=JSON.parse(JSON.stringify(defaultHow));
+  state.portfolioVersion="music-festivals-v1";
+  try{localStorage.setItem("leaCherryLine",JSON.stringify(state));}catch(e){console.warn("Portfolio text migration could not be persisted",e);}
+}
+if(!state.text.conception)state.text.conception=defaultText.conception;
+// Migrate generic legacy podcast placeholders to the established project names,
+// without overwriting titles the user has deliberately customized.
+if(state.text.podcast1Title==="Audio podcast")state.text.podcast1Title="BRUT.E";
+if(state.text.podcast2Title==="Video / interview")state.text.podcast2Title="SISTERHOOD STORIES";
+
+const DB_NAME="leaCherryMedia",DB_VERSION=2,STORE="media";
+let mediaDB=null,objectUrls={},pendingMediaDeletes=[],pendingMediaFiles={};
+let mediaDBReady=null;
+
+function openMediaDB(){
+  return new Promise((resolve,reject)=>{
+    if(!window.indexedDB){reject(new Error("IndexedDB unavailable in this browser"));return;}
+    const req=indexedDB.open(DB_NAME,DB_VERSION);
+    req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains(STORE))db.createObjectStore(STORE);};
+    req.onsuccess=()=>{
+      const db=req.result; mediaDB=db;
+      db.onversionchange=()=>{try{db.close()}catch(e){};if(mediaDB===db)mediaDB=null;mediaDBReady=null;};
+      db.onclose=()=>{if(mediaDB===db)mediaDB=null;mediaDBReady=null;};
+      resolve(db);
+    };
+    req.onerror=()=>{mediaDB=null;mediaDBReady=null;reject(req.error||new Error("Media database could not be opened"));};
+    req.onblocked=()=>reject(new Error("Media database is blocked by another open tab. Close other copies of CHERRY LINE and retry."));
+  });
+}
+async function ensureMediaDB(){
+  if(mediaDB){try{if(mediaDB.objectStoreNames.contains(STORE)){const tx=mediaDB.transaction(STORE,"readonly");tx.abort();return mediaDB;}}catch(e){mediaDB=null;mediaDBReady=null;}}
+  if(mediaDBReady){try{return await mediaDBReady}catch(e){mediaDBReady=null;}}
+  mediaDBReady=openMediaDB();return await mediaDBReady;
+}
+
+async function mediaRecord(file){
+  const blob=file instanceof Blob ? file : new Blob([file]);
+  return {
+    blob,
+    type:String(blob.type||file?.type||"application/octet-stream"),
+    name:String(file?.name||"media"),
+    size:blob.size,
+    lastModified:Number(file?.lastModified||Date.now())
+  };
+}
+function unwrapMedia(value){
+  if(!value)return null;
+  if(value instanceof Blob)return value;
+  // New records: keep the original Blob/File without decoding it.
+  if(value.blob && typeof value.blob.size === "number")return value.blob;
+  // Compatibility with older ArrayBuffer records.
+  if(value.data instanceof ArrayBuffer)return new Blob([value.data],{type:value.type||"application/octet-stream"});
+  if(ArrayBuffer.isView(value.data))return new Blob([value.data],{type:value.type||"application/octet-stream"});
+  if(value.data && typeof value.data.size === "number")return value.data;
+  return null;
+}
+function putMedia(key,file){
+  return new Promise(async (resolve,reject)=>{
+    try{await ensureMediaDB()}catch(err){reject(err);return;}
+    let record;
+    try{record=await mediaRecord(file)}catch(err){reject(err);return;}
+    let settled=false;
+    const finishOk=()=>{if(!settled){settled=true;resolve()}};
+    const finishErr=(err)=>{if(!settled){settled=true;reject(err)}};
+    const write=(payload,allowFallback)=>{
+      let tx;
+      try{
+        tx=mediaDB.transaction(STORE,"readwrite");
+        tx.objectStore(STORE).put(payload,key);
+      }catch(err){finishErr(err);return;}
+      tx.oncomplete=finishOk;
+      tx.onerror=()=>{
+        const err=tx.error||new Error("Media save failed");
+        const cloneIssue=allowFallback && /DataClone|DataError|InvalidState|UnknownError/i.test(String(err.name||err.message||""));
+        if(cloneIssue && record.blob instanceof Blob){
+          record.blob.arrayBuffer().then(data=>{
+            if(!settled)write({data,type:record.type,name:record.name,size:record.size,lastModified:record.lastModified},false);
+          }).catch(finishErr);
+        }else finishErr(err);
+      };
+      tx.onabort=()=>{
+        if(!settled && !(allowFallback && tx.error && /DataClone|DataError|InvalidState|UnknownError/i.test(String(tx.error.name||tx.error.message||""))))
+          finishErr(tx.error||new Error("Media save aborted"));
+      };
+    };
+    write(record,true);
+  });
+}
+
+async function getMedia(key){
+  const db=await ensureMediaDB();
+  return new Promise((resolve,reject)=>{
+    try{
+      const tx=db.transaction(STORE,"readonly"),req=tx.objectStore(STORE).get(key);
+      req.onsuccess=()=>resolve(unwrapMedia(req.result));
+      req.onerror=()=>reject(req.error||new Error("Media read failed"));
+      tx.onabort=()=>reject(tx.error||new Error("Media read aborted"));
+    }catch(err){reject(err)}
+  });
+}
+function deleteMedia(key){
+  return new Promise((resolve,reject)=>{
+    if(!mediaDB){resolve();return;}
+    const tx=mediaDB.transaction(STORE,"readwrite");
+    tx.objectStore(STORE).delete(key);
+    tx.oncomplete=()=>resolve();
+    tx.onerror=()=>reject(tx.error||new Error("Media delete failed"));
+    tx.onabort=()=>reject(tx.error||new Error("Media delete aborted"));
+  });
+}
+
+const MEDIA_SECTIONS=[
+  {key:"hero",label:"01 — HERO",defaultFormat:"3:4"},
+  {key:"about",label:"02 — ABOUT — 4 PHOTO CAROUSEL",defaultFormat:"Original",maxItems:4},
+  {key:"ardentes",label:"03 — ARDENTES",defaultFormat:"Original"},
+  {key:"chant",label:"04 — CHANT D’ÉOLE",defaultFormat:"Original"},
+  {key:"conception",label:"05 — LA CONCEPTION",defaultFormat:"Original"},
+  {key:"journalism1",label:"06 — JOURNALISM 01",defaultFormat:"16:9"},
+  {key:"journalism2",label:"07 — JOURNALISM 02",defaultFormat:"3:4"},
+  {key:"sport1",label:"08 — SPORT CONTENT — CAROUSEL (UP TO 20 MEDIA)",defaultFormat:"9:16",maxItems:20,carousel:true},
+  {key:"school1",label:"09 — SCHOOL CONTENT — CAROUSEL (UP TO 20 MEDIA)",defaultFormat:"9:16",maxItems:20,carousel:true},
+  {key:"w2w",label:"11 — W2W",defaultFormat:"Original"},
+  {key:"spa",label:"12 — GP DE SPA — CAROUSEL",defaultFormat:"Original",maxItems:5,gallery:true},
+  {key:"24h",label:"13 — 24H DE SPA — CAROUSEL",defaultFormat:"Original",maxItems:5,gallery:true}
+];
+const MEDIA_FORMATS=["Original","16:9","4:3","3:4","1:1","9:16","Custom"];
+const SUPPORTED_VIDEO_MIMES=new Set(["video/mp4","video/webm","video/quicktime","video/x-m4v"]);
+function isVideoFile(file){
+  const mime=String(file?.type||"").toLowerCase();
+  const name=String(file?.name||"").toLowerCase();
+  return mime.startsWith("video/") || /\.(mov|mp4|webm|m4v)$/.test(name);
+}
+function videoTypeForFile(file){
+  const mime=String(file?.type||"").toLowerCase();
+  if(SUPPORTED_VIDEO_MIMES.has(mime))return mime;
+  const name=String(file?.name||"").toLowerCase();
+  if(name.endsWith(".mov"))return "video/quicktime";
+  if(name.endsWith(".webm"))return "video/webm";
+  if(name.endsWith(".mp4"))return "video/mp4";
+  return mime || "video/mp4";
+}
+
+
+function mediaStorageKey(section,id){return "managed:"+section+":"+id}
+function getMediaMeta(section){return Array.isArray(state.mediaMeta?.[section])?state.mediaMeta[section]:[]}
+function setMediaMeta(section,items){
+  state.mediaMeta=state.mediaMeta||{};
+  state.mediaMeta[section]=items;
+}
+function makeMediaId(section){
+  const items=getMediaMeta(section);
+  let n=1; while(items.some(x=>String(x.id)===String(n)))n++;
+  return String(n);
+}
+async function mediaExists(section,id){
+  return !!(await getMedia(mediaStorageKey(section,id)).catch(()=>null));
+}
+async function migrateManagedMedia(){
+  // Refuse to migrate while storage is unavailable. Never interpret a failed DB
+  // read as an empty database and never replace existing metadata in that case.
+  await ensureMediaDB();
+  const originalMeta=state.mediaMeta;
+  const stagedMeta=JSON.parse(JSON.stringify(originalMeta||{}));
+  state.mediaMeta=stagedMeta;
+  try{
+    for(const section of MEDIA_SECTIONS){
+      const existing=Array.isArray(stagedMeta[section.key])?stagedMeta[section.key]:[];
+
+      if(section.gallery){
+        const migrated=[...existing];
+        for(let i=1;i<=section.maxItems;i++){
+          const id=String(i);
+          const current=migrated.find(meta=>String(meta.id)===id);
+          if(current){
+            const currentFile=await getManagedMedia(section.key,id,current);
+            if(currentFile)continue;
+          }
+          const legacy=await getMedia(section.key+id);
+          if(!legacy)continue;
+          const meta=current||{id,type:String(legacy.type||"").startsWith("video/")?"video":"image",format:section.defaultFormat||"Original",customRatio:"",legacy:false,mime:legacy.type||""};
+          await putMedia(mediaStorageKey(section.key,id),legacy);
+          meta.legacy=false;meta.mime=legacy.type||meta.mime||"";meta.type=(String(legacy.type||"").startsWith("video/")||meta.type==="video")?"video":"image";
+          if(!current)migrated.push(meta);
+        }
+        migrated.sort((a,b)=>Number(a.id)-Number(b.id));
+        stagedMeta[section.key]=migrated;
+        continue;
+      }
+
+      if(existing.length){
+        let readable=false;
+        for(const meta of existing){
+          const file=await getManagedMedia(section.key,meta.id,meta);
+          if(file){readable=true;break;}
+        }
+        if(readable){stagedMeta[section.key]=existing;continue;}
+        // If older direct-key storage is still present, migrate it without dropping
+        // the existing references first. Otherwise keep the old metadata untouched.
+        let legacyDirect=await getMedia(section.key);
+        let legacySource=section.key;
+        if(!legacyDirect){
+          for(const alias of (aliases[section.key]||[])){
+            legacyDirect=await getMedia(alias);
+            if(legacyDirect){legacySource=alias;break;}
+          }
+        }
+        if(legacyDirect){
+          await putMedia(mediaStorageKey(section.key,"1"),legacyDirect);
+          stagedMeta[section.key]=[{id:"1",type:(String(legacyDirect.type||"").startsWith("video/")?"video":"image"),format:section.defaultFormat||"Original",customRatio:"",legacy:false,mime:legacyDirect.type||"",sourceKey:legacySource}];
+        }else stagedMeta[section.key]=existing;
+        continue;
+      }
+
+      let direct=await getMedia(section.key);
+      let sourceKey=section.key;
+      if(!direct){
+        for(const alias of (aliases[section.key]||[])){
+          direct=await getMedia(alias);
+          if(direct){sourceKey=alias;break;}
+        }
+      }
+      const legacy=direct || (state.media?.[section.key]?{legacy:true,src:state.media[section.key],type:state.media[section.key].startsWith("data:video")?"video/mp4":"image/*"}:
+        (state.media?.[sourceKey]?{legacy:true,src:state.media[sourceKey],type:state.media[sourceKey].startsWith("data:video")?"video/mp4":"image/*"}:null));
+      if(legacy){
+        const isDataLegacy=!!legacy.legacy;
+        stagedMeta[section.key]=[{id:"1",type:(legacy.type||"").startsWith("video/")?"video":"image",format:section.defaultFormat||"Original",legacy:isDataLegacy,sourceKey}];
+        if(!isDataLegacy)await putMedia(mediaStorageKey(section.key,"1"),legacy);
+      }else{
+        stagedMeta[section.key]=[];
+      }
+    }
+    state.mediaMeta=stagedMeta;
+  }catch(err){
+    state.mediaMeta=originalMeta||{};
+    throw err;
+  }
+}
+async function getManagedMedia(section,id,meta){
+  if(meta?.legacy){
+    const source=meta.sourceKey||section;
+    if(state.media?.[source])return {blob:null,src:state.media[source],type:meta.type||"image",legacy:true};
+  }
+  // Do not turn a database failure into "missing media". Migration and saving
+  // must distinguish a genuinely absent key from a temporarily unreadable DB.
+  const blob=await getMedia(mediaStorageKey(section,id));
+  if(blob)return {blob,type:(meta?.type==="video"||String(blob.type||"").startsWith("video/"))?"video":"image"};
+  // Backward-compatible fallback to old direct key.
+  const old=await getMedia(section);
+  if(old && String(id)==="1")return {blob:old,type:(meta?.type==="video"||String(old.type||"").startsWith("video/"))?"video":"image"};
+  return null;
+}
+async function deleteManagedMedia(section,id,meta){
+  await deleteMedia(mediaStorageKey(section,id)).catch(()=>{});
+  if(section==="spa"||section==="24h")await deleteMedia(section+String(id)).catch(()=>{});
+  if(meta?.legacy){
+    await deleteMedia(section).catch(()=>{});
+    if(meta?.sourceKey && meta.sourceKey!==section)await deleteMedia(meta.sourceKey).catch(()=>{});
+    delete state.media?.[section];
+    if(meta?.sourceKey)delete state.media?.[meta.sourceKey];
+  }
+}
+async function findMedia(key){
+  const list=getMediaMeta(key);
+  if(list.length){
+    return getManagedMedia(key,list[0].id,list[0]);
+  }
+  const direct=await getMedia(key).catch(()=>null);
+  if(direct)return direct;
+  for(const k of (aliases[key]||[])){
+    const f=await getMedia(k).catch(()=>null);
+    if(f)return f;
+    if(state.media[k])return {legacy:true,src:state.media[k],type:state.media[k].startsWith("data:video")?"video/mp4":"image/*"};
+  }
+  if(state.media[key])return {legacy:true,src:state.media[key],type:state.media[key].startsWith("data:video")?"video/mp4":"image/*"};
+  return null;
+}
+
+function formatRatioValue(format, customRatio=""){
+  if(format === "Custom"){
+    const m=String(customRatio||"").trim().match(/^(\d+(?:\.\d+)?)\s*[:/]\s*(\d+(?:\.\d+)?)$/);
+    if(m && Number(m[1])>0 && Number(m[2])>0)return `${m[1]} / ${m[2]}`;
+    return "";
+  }
+  if(format && format !== "Original")return format.replace(":"," / ");
+  return "";
+}
+function applyMediaRatio(el, meta, naturalW=0, naturalH=0){
+  if(!el)return;
+  const chosen=formatRatioValue(meta?.format,meta?.customRatio);
+  const ratio=chosen || (naturalW>0 && naturalH>0 ? `${naturalW} / ${naturalH}` : "16 / 9");
+  el.style.setProperty("aspect-ratio",ratio,"important");
+  el.dataset.mediaRatio=ratio;
+}
+function sizeContentCarouselToMedia(box, meta, naturalW=0, naturalH=0){
+  if(!box)return;
+  const isContentFrame=box.matches('[data-media="sport1"], [data-media="school1"]');
+  if(!isContentFrame){applyMediaRatio(box,meta,naturalW,naturalH);return;}
+  const ratio=(naturalW>0 && naturalH>0) ? naturalW/naturalH : 4/5;
+  const maxWidth=340;
+  const maxHeight=window.matchMedia('(max-width: 600px)').matches ? 340 : 390;
+  const availableWidth=Math.max(160, Math.min(maxWidth, box.parentElement?.clientWidth || maxWidth));
+  const width=Math.min(availableWidth, maxHeight*ratio);
+  box.style.setProperty('width', `${Math.round(width)}px`, 'important');
+  box.style.setProperty('max-width', '100%', 'important');
+  box.style.setProperty('height', 'auto', 'important');
+  box.style.setProperty('aspect-ratio', `${naturalW>0&&naturalH>0?naturalW:4} / ${naturalW>0&&naturalH>0?naturalH:5}`, 'important');
+  box.style.setProperty('margin-inline', 'auto', 'important');
+  box.dataset.mediaRatio=`${naturalW>0&&naturalH>0?naturalW:4} / ${naturalW>0&&naturalH>0?naturalH:5}`;
+}
+function mediaErrorMessage(type){
+  return type === "video" ? "Unable to load this video. Please choose another video file." : "Unable to load this media.";
+}
+function attachSafeVideo(video, container, meta){
+  video.controls=true;
+  video.playsInline=true;
+  video.preload="metadata";
+  video.muted=true;
+  video.setAttribute("playsinline","");
+  applyMediaRatio(container,meta);
+  video.addEventListener("loadedmetadata",()=>{
+    applyMediaRatio(container,meta,video.videoWidth,video.videoHeight);
+    container.classList.remove("media-load-error");
+  },{once:true});
+  video.addEventListener("error",()=>{
+    // Contain media failures to this one component. Never throw from a media event.
+    container.classList.add("media-load-error");
+    let message=container.querySelector(".media-error-message");
+    if(!message){message=document.createElement("span");message.className="media-error-message";container.appendChild(message)}
+    message.textContent=mediaErrorMessage("video");
+  },{once:true});
+  return video;
+}
+async function render(){
+  document.querySelectorAll("[data-key]").forEach(el=>{
+    const key=el.dataset.key;
+    let value=state.text[key];
+    // Keep essential project headings visible if an earlier editor save left them empty.
+    if((key==="spaTitle"||key==="twentyFourTitle") && !String(value||"").trim()) value=defaultText[key];
+    if(value!==undefined)el.textContent=value;
+  });
+  renderSkills();
+  renderHow();
+
+  for(const section of MEDIA_SECTIONS){
+    const box=document.querySelector(`[data-media="${section.key}"]`);
+    if(!box)continue;
+    const items=getMediaMeta(section.key);
+    // These sections use hosted YouTube players instead of heavy local video files.
+    if(YOUTUBE_MEDIA[section.key] && !["sport1","school1"].includes(section.key)){
+      const yt=YOUTUBE_MEDIA[section.key][0];
+      box.innerHTML="";
+      box.classList.add("media-managed-host");
+      box.classList.remove("media-managed-multi");
+      box.style.setProperty("aspect-ratio",yt.ratio,"important");
+      const item=document.createElement("div"); item.className="media-managed-item youtube-media-item";
+      item.style.setProperty("aspect-ratio",yt.ratio,"important");
+      const frame=document.createElement("iframe");
+      frame.className="youtube-embed-frame";
+      frame.src=`https://www.youtube-nocookie.com/embed/${yt.id}?playsinline=1&rel=0`;
+      frame.title=yt.label; frame.loading="eager";
+      frame.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      frame.allowFullscreen=true; frame.referrerPolicy="strict-origin-when-cross-origin";
+      item.appendChild(frame); box.appendChild(item);
+      continue;
+    }
+    // ABOUT must always use its four-photo carousel, including when media is
+    // supplied through the static Media/ paths rather than the browser editor.
+    if(section.key==="about"){
+      const aboutItems=items.length ? items : (STATIC_MEDIA.about||[]).map((src,i)=>({
+        id:String(i+1), type:"image", format:"Original", customRatio:"", legacy:true, src
+      }));
+      await renderAboutCarousel(box, aboutItems, "about");
+      continue;
+    }
+    if(section.key==="sport1" || section.key==="school1"){
+      await renderContentCarousel(box, items, section.key);
+      continue;
+    }
+    if(!items.length){
+      const staticFiles=STATIC_MEDIA[section.key]||[];
+      if(staticFiles.length){
+        box.innerHTML="";
+        box.classList.add("media-managed-host");
+        box.classList.toggle("media-managed-multi",staticFiles.length>1);
+        box.style.removeProperty("aspect-ratio");
+        for(const path of staticFiles){
+          const item=document.createElement("div"); item.className="media-managed-item";
+          const isVideo=/\.(mp4|mov|webm|m4v)$/i.test(path);
+          if(isVideo){const v=attachSafeVideo(document.createElement("video"),item,{format:section.defaultFormat||"Original"});v.src=path;item.appendChild(v)}
+          else {const img=document.createElement("img");img.alt="";img.loading="lazy";img.src=path;img.addEventListener("error",()=>{item.classList.add("media-load-error");item.textContent="Media not found: "+path},{once:true});item.addEventListener("load",()=>applyMediaRatio(item,{format:section.defaultFormat||"Original"},img.naturalWidth,img.naturalHeight),{once:true});item.appendChild(img)}
+          applyMediaRatio(item,{format:section.defaultFormat||"Original"}); box.appendChild(item);
+        }
+        continue;
+      }
+      const file=await findMedia(section.key);
+      if(!file)continue;
+      box.innerHTML="";
+      box.classList.add("media-managed-host");
+      const item=document.createElement("div"); item.className="media-managed-item";
+      const meta={format:section.defaultFormat||"Original",customRatio:""};
+      const src=file.legacy?file.src:URL.createObjectURL(file.blob||file);
+      if(!file.legacy)item.dataset.objectUrl=src;
+      if(file.type==="video" || String(file.type||"").startsWith("video/")){
+        const v=attachSafeVideo(document.createElement("video"),item,meta); v.src=src; item.appendChild(v);
+      }else{
+        const img=document.createElement("img"); img.alt="";
+        img.addEventListener("load",()=>applyMediaRatio(item,meta,img.naturalWidth,img.naturalHeight),{once:true});
+        img.addEventListener("error",()=>{item.classList.add("media-load-error");item.textContent="Unable to load media."},{once:true});
+        img.src=src; item.appendChild(img);
+      }
+      box.classList.remove("media-managed-multi"); applyMediaRatio(box,meta); box.appendChild(item); continue;
+    }
+    if((section.key==="about" || section.key==="sport1" || section.key==="school1") && items.length>0){
+      await renderAboutCarousel(box,items,section.key);
+      continue;
+    }
+    box.innerHTML="";
+    box.classList.add("media-managed-host");
+    box.classList.toggle("media-managed-multi",items.length>1);
+    /* The managed child owns the chosen ratio. Keeping a ratio on the host
+       doubles the frame height and creates gaps / overlapping captions. */
+    box.style.removeProperty("aspect-ratio");
+    const fragment=document.createDocumentFragment();
+    for(const meta of items){
+      let file=null;
+      try{file=await getManagedMedia(section.key,meta.id,meta)}catch(err){console.error("CHERRY LINE media read error",section.key,meta.id,err);continue}
+      if(!file)continue;
+      const item=document.createElement("div"); item.className="media-managed-item";
+      const src=file.legacy?file.src:URL.createObjectURL(file.blob);
+      if(!file.legacy)item.dataset.objectUrl=src;
+      if(file.type==="video" || String(file.type||"").startsWith("video/")){
+        const v=attachSafeVideo(document.createElement("video"),item,meta); v.src=src; item.appendChild(v);
+      }else{
+        const img=document.createElement("img"); img.alt="";
+        img.addEventListener("load",()=>applyMediaRatio(item,meta,img.naturalWidth,img.naturalHeight),{once:true});
+        img.addEventListener("error",()=>{item.classList.add("media-load-error");item.textContent="Unable to load media."},{once:true});
+        img.src=src; item.appendChild(img);
+        applyMediaRatio(item,meta);
+      }
+      applyMediaRatio(item,meta); fragment.appendChild(item);
+    }
+    box.appendChild(fragment);
+  }
+
+  for(const key of mediaKeys.filter(k=>!MEDIA_SECTIONS.some(s=>s.key===k) && k!=="spa" && k!=="24h")){
+    const box=document.querySelector(`[data-media="${key}"]`); if(!box)continue;
+    const staticFiles=STATIC_MEDIA[key]||[];
+    if(staticFiles.length){
+      box.innerHTML=""; box.classList.remove("media-managed-host","media-managed-multi");
+      const path=staticFiles[0];
+      if(/\.(mp4|mov|webm|m4v)$/i.test(path)){const v=attachSafeVideo(document.createElement("video"),box,{format:"Original"});v.src=path;box.appendChild(v)}
+      else {const img=document.createElement("img");img.src=path;img.alt="";img.loading="lazy";box.appendChild(img)}
+      continue;
+    }
+    const file=await findMedia(key); if(!file)continue;
+    box.classList.remove("media-managed-host","media-managed-multi");
+    const src=file.legacy?file.src:URL.createObjectURL(file.blob||file);
+    box.innerHTML="";
+    if(file.type==="video" || String(file.type||"").startsWith("video/")){
+      const v=attachSafeVideo(document.createElement("video"),box,{format:"Original"});v.src=src;box.appendChild(v);
+    }else{const img=document.createElement("img");img.src=src;img.alt="";box.appendChild(img)}
+  }
+}
+function renderSkills(){
+  const columns=document.getElementById("skillColumns");
+  const languages=document.getElementById("skillLanguages");
+  if(!columns||!languages)return;
+  columns.innerHTML="";
+  state.skills.categories.forEach(category=>{
+    const block=document.createElement("div");
+    const h3=document.createElement("h3"); h3.textContent=category.name;
+    const p=document.createElement("p");
+    category.items.forEach((item,index)=>{
+      if(index)p.appendChild(document.createElement("br"));
+      p.appendChild(document.createTextNode(item));
+    });
+    block.append(h3,p); columns.appendChild(block);
+  });
+  languages.innerHTML="";
+  state.skills.languages.forEach(item=>{const span=document.createElement("span");span.textContent=item;languages.appendChild(span)});
+}
+
+function renderHow(){
+  const grid=document.querySelector(".how-grid");
+  if(!grid)return;
+  grid.innerHTML="";
+  state.how.forEach(item=>{
+    const block=document.createElement("div");
+    const b=document.createElement("b"); b.textContent=item.number;
+    const h3=document.createElement("h3"); h3.textContent=item.title;
+    const p=document.createElement("p"); p.textContent=item.text;
+    block.append(b,h3,p); grid.appendChild(block);
+  });
+}
+
+function howEditorRow(index,item){
+  const row=document.createElement("div"); row.className="how-editor-row";
+  row.innerHTML=`<input class="how-number" type="text" value="" maxlength="3" aria-label="Number">
+    <input class="how-title" type="text" value="" aria-label="Title">
+    <textarea class="how-text" aria-label="Description"></textarea>
+    <button type="button" class="text-button" data-how-up="${index}" ${index===0?"disabled":""}>↑</button>
+    <button type="button" class="text-button" data-how-down="${index}" ${index===state.how.length-1?"disabled":""}>↓</button>
+    <button type="button" class="text-button" data-how-delete="${index}">DELETE</button>`;
+  row.querySelector(".how-number").value=item.number;
+  row.querySelector(".how-title").value=item.title;
+  row.querySelector(".how-text").value=item.text;
+  return row;
+}
+
+function buildHowEditor(){
+  const host=document.getElementById("howEditor"); if(!host)return;
+  host.innerHTML="";
+  state.how.forEach((item,i)=>host.appendChild(howEditorRow(i,item)));
+  const add=document.createElement("button"); add.type="button"; add.className="text-button"; add.dataset.howAdd=""; add.textContent="+ ADD BLOCK"; host.appendChild(add);
+}
+
+function readHowEditor(){
+  const items=[];
+  document.querySelectorAll(".how-editor-row").forEach(row=>{
+    const number=row.querySelector(".how-number").value.trim();
+    const title=row.querySelector(".how-title").value.trim();
+    const text=row.querySelector(".how-text").value.trim();
+    if(title||text)items.push({number:number||String(items.length+1).padStart(2,"0"),title,text});
+  });
+  state.how=items;
+}
+
+function skillEditorRow(categoryIndex,itemIndex,item){
+  const row=document.createElement("div"); row.className="skill-editor-row";
+  row.innerHTML=`<input type="text" value="" aria-label="Skill ${itemIndex+1}">
+    <button type="button" class="text-button" data-skill-up="${categoryIndex}:${itemIndex}" ${itemIndex===0?"disabled":""}>↑</button>
+    <button type="button" class="text-button" data-skill-down="${categoryIndex}:${itemIndex}" ${itemIndex===state.skills.categories[categoryIndex].items.length-1?"disabled":""}>↓</button>
+    <button type="button" class="text-button" data-skill-delete="${categoryIndex}:${itemIndex}">DELETE</button>`;
+  row.querySelector("input").value=item;
+  return row;
+}
+
+function buildSkillsEditor(){
+  const host=document.getElementById("skillsEditor"); if(!host)return;
+  host.innerHTML="";
+  state.skills.categories.forEach((category,ci)=>{
+    const section=document.createElement("div"); section.className="skill-editor-category";
+    section.innerHTML=`<div class="skill-editor-category-top"><input class="skill-category-name" type="text" value="">
+      <div><button type="button" class="text-button" data-category-up="${ci}" ${ci===0?"disabled":""}>↑</button>
+      <button type="button" class="text-button" data-category-down="${ci}" ${ci===state.skills.categories.length-1?"disabled":""}>↓</button>
+      <button type="button" class="text-button" data-category-delete="${ci}">DELETE CATEGORY</button></div></div>
+      <div class="skill-editor-items"></div>
+      <button type="button" class="text-button skill-add-button" data-skill-add="${ci}">+ ADD SKILL</button>`;
+    section.querySelector(".skill-category-name").value=category.name;
+    const items=section.querySelector(".skill-editor-items");
+    category.items.forEach((item,ii)=>items.appendChild(skillEditorRow(ci,ii,item)));
+    host.appendChild(section);
+  });
+  const addCategory=document.createElement("button"); addCategory.type="button"; addCategory.className="text-button skill-add-category"; addCategory.dataset.categoryAdd=""; addCategory.textContent="+ ADD CATEGORY"; host.appendChild(addCategory);
+  const lang=document.createElement("div"); lang.className="skill-editor-languages";
+  lang.innerHTML='<h3>LANGUAGES</h3><div class="skill-editor-language-list"></div><button type="button" class="text-button" data-language-add="">+ ADD LANGUAGE</button>';
+  const list=lang.querySelector(".skill-editor-language-list");
+  state.skills.languages.forEach((item,i)=>{
+    const row=document.createElement("div"); row.className="skill-editor-row";
+    row.innerHTML=`<input type="text" value=""><button type="button" class="text-button" data-language-up="${i}" ${i===0?"disabled":""}>↑</button><button type="button" class="text-button" data-language-down="${i}" ${i===state.skills.languages.length-1?"disabled":""}>↓</button><button type="button" class="text-button" data-language-delete="${i}">DELETE</button>`;
+    row.querySelector("input").value=item; list.appendChild(row);
+  });
+  host.appendChild(lang);
+}
+
+function readSkillsEditor(){
+  const categories=[];
+  document.querySelectorAll(".skill-editor-category").forEach(section=>{
+    const name=section.querySelector(".skill-category-name").value.trim();
+    const items=[...section.querySelectorAll(".skill-editor-items input")].map(x=>x.value.trim()).filter(Boolean);
+    if(name)categories.push({name,items});
+  });
+  const languages=[...document.querySelectorAll(".skill-editor-language-list input")].map(x=>x.value.trim()).filter(Boolean);
+  state.skills={categories,languages};
+}
+
+function moveItem(arr,from,to){if(to<0||to>=arr.length)return;const [x]=arr.splice(from,1);arr.splice(to,0,x);}
+
+/* Skills editor actions — editor data only; public Skills markup/classes stay unchanged. */
+function bindSkillsEditor(){
+  const host=document.getElementById("skillsEditor");
+  if(!host || host.dataset.bound==="1")return;
+  host.dataset.bound="1";
+  host.addEventListener("click",e=>{
+    const button=e.target.closest("button");
+    if(!button)return;
+    e.preventDefault();
+    const skillUp=button.dataset.skillUp;
+    const skillDown=button.dataset.skillDown;
+    const skillDelete=button.dataset.skillDelete;
+    const skillAdd=button.dataset.skillAdd;
+    const categoryUp=button.dataset.categoryUp;
+    const categoryDown=button.dataset.categoryDown;
+    const categoryDelete=button.dataset.categoryDelete;
+    const categoryAdd=button.dataset.categoryAdd!==undefined;
+    const languageUp=button.dataset.languageUp;
+    const languageDown=button.dataset.languageDown;
+    const languageDelete=button.dataset.languageDelete;
+    const languageAdd=button.dataset.languageAdd!==undefined;
+
+    // Keep text edits already entered in the form before rebuilding the editor UI.
+    if(skillUp || skillDown || skillDelete || skillAdd || categoryUp || categoryDown || categoryDelete || categoryAdd || languageUp || languageDown || languageDelete || languageAdd){
+      readSkillsEditor();
+    }
+
+    if(skillUp || skillDown || skillDelete){
+      const [ciRaw,iiRaw]=(skillUp||skillDown||skillDelete).split(":");
+      const ci=Number(ciRaw), ii=Number(iiRaw);
+      const items=state.skills.categories[ci]?.items;
+      if(!items)return;
+      if(skillUp)moveItem(items,ii,ii-1);
+      else if(skillDown)moveItem(items,ii,ii+1);
+      else if(skillDelete)items.splice(ii,1);
+      buildSkillsEditor();
+      return;
+    }
+
+    if(skillAdd){
+      const ci=Number(skillAdd);
+      if(!state.skills.categories[ci])return;
+      state.skills.categories[ci].items.push("NEW SKILL");
+      buildSkillsEditor();
+      const rows=host.querySelectorAll(`[data-skill-add="${ci}"]`);
+      const section=rows[0]?.closest(".skill-editor-category");
+      section?.querySelector(".skill-editor-items input:last-child")?.focus();
+      return;
+    }
+
+    if(categoryUp || categoryDown || categoryDelete){
+      const ci=Number(categoryUp||categoryDown||categoryDelete);
+      if(!Number.isInteger(ci)||!state.skills.categories[ci])return;
+      if(categoryUp)moveItem(state.skills.categories,ci,ci-1);
+      else if(categoryDown)moveItem(state.skills.categories,ci,ci+1);
+      else state.skills.categories.splice(ci,1);
+      buildSkillsEditor();
+      return;
+    }
+
+    if(categoryAdd){
+      state.skills.categories.push({name:"NEW CATEGORY",items:["NEW SKILL"]});
+      buildSkillsEditor();
+      return;
+    }
+
+    if(languageUp || languageDown || languageDelete){
+      const i=Number(languageUp||languageDown||languageDelete);
+      if(!Number.isInteger(i)||!state.skills.languages[i])return;
+      if(languageUp)moveItem(state.skills.languages,i,i-1);
+      else if(languageDown)moveItem(state.skills.languages,i,i+1);
+      else state.skills.languages.splice(i,1);
+      buildSkillsEditor();
+      return;
+    }
+
+    if(languageAdd){
+      state.skills.languages.push("NEW LANGUAGE");
+      buildSkillsEditor();
+    }
+  });
+}
+
+async function renderContentCarousel(box, metaItems, sectionKey){
+  const staticPaths=STATIC_MEDIA[sectionKey]||[];
+  const hosted=(YOUTUBE_MEDIA[sectionKey]||[]);
+  const entries=[];
+
+  // Include ALL saved/editor media and ALL default static media. Previously, once
+  // any editor metadata existed, static paths were skipped entirely; this is why
+  // later items such as Sport Content 7 could disappear from the carousel.
+  for(const meta of (Array.isArray(metaItems)?metaItems:[])){
+    if(!meta)continue;
+    try{
+      const pending=pendingMediaFiles[mediaStorageKey(sectionKey,meta.id)];
+      const file=pending?{blob:pending,type:isVideoFile(pending)?"video":"image",name:pending.name}:await getManagedMedia(sectionKey,meta.id,meta);
+      if(file)entries.push({key:`managed:${meta.id}`,meta:{...meta,format:"Original",customRatio:""},file,src:file.legacy?file.src:null});
+    }catch(err){console.error("CHERRY LINE content carousel media read error",sectionKey,meta.id,err)}
+  }
+  // Resolve files against the published Media/ directory before adding slides.
+  // This prevents broken paths from becoming visible "MEDIA UNAVAILABLE" cards.
+  async function findPublishedMedia(path){
+    const candidates=[path];
+    const file=path.split("/").pop();
+    if(sectionKey==="sport1" && /sportcontent7/i.test(file)){
+      ["Sportcontent7.mov","SportContent7.mov","sportcontent7.mov","Sportcontent7.mp4","SportContent7.mp4","sportcontent7.mp4"].forEach(name=>candidates.push("Media/"+name));
+    }
+    for(const candidate of [...new Set(candidates)]){
+      try{
+        const response=await fetch(candidate,{method:"HEAD",cache:"no-store"});
+        if(response.ok)return candidate;
+      }catch(error){/* Try the next exact-case candidate. */}
+    }
+    return null;
+  }
+  for(const path of staticPaths){
+    const resolved=await findPublishedMedia(path);
+    if(!resolved)continue;
+    const isVideo=/\.(mp4|mov|webm|m4v)$/i.test(resolved);
+    entries.push({key:`path:${resolved.toLowerCase()}`,path:resolved,isVideo,meta:{format:"Original",customRatio:""}});
+  }
+  // Hosted social media are additional slides, never replacements for local files.
+  for(const h of hosted){
+    if(h.instagramUrl)entries.push({key:`ig:${h.instagramUrl}`,instagramUrl:h.instagramUrl,ratio:h.ratio||"9 / 16",label:h.label,meta:{format:"Original"}});
+    else if(h.id)entries.push({key:`yt:${h.id}`,youtubeId:h.id,ratio:h.ratio||"9 / 16",label:h.label,meta:{format:"Original"}});
+  }
+  // Deduplicate by actual identity (not just editor slot IDs).
+  const seen=new Set();
+  const uniqueEntries=entries.filter(e=>{
+    const f=e.file?.blob||e.file;
+    const basename=value=>String(value||"").split(/[\/]/).pop().toLowerCase();
+    const identity=e.youtubeId?`yt:${e.youtubeId}`:e.instagramUrl?`ig:${e.instagramUrl.replace(/\/$/,"")}`:e.path?`media:${basename(e.path)}`:e.src?`src:${e.src}`:f?.name?`media:${basename(f.name)}`:e.key;
+    if(!identity)return true;if(seen.has(identity))return false;seen.add(identity);return true;
+  });
+  box.innerHTML="";box.classList.add("content-carousel-host","media-managed-host");box.classList.remove("media-managed-multi","content-carousel-empty");
+  box.style.setProperty("height","auto","important");box.style.setProperty("aspect-ratio","auto","important");box.style.setProperty("overflow","visible","important");
+  if(!uniqueEntries.length){box.classList.add("content-carousel-empty");box.textContent="MEDIA COMING SOON";return;}
+  const stage=document.createElement("div");stage.className="content-carousel-stage";stage.setAttribute("aria-label",sectionKey==="sport1"?"Sport content carousel":"School content carousel");stage.tabIndex=0;
+  const track=document.createElement("div");track.className="content-carousel-track";stage.appendChild(track);
+  const prevButton=document.createElement("button");prevButton.type="button";prevButton.className="content-carousel-arrow content-carousel-prev";prevButton.setAttribute("aria-label","Previous media");prevButton.textContent="‹";
+  const nextButton=document.createElement("button");nextButton.type="button";nextButton.className="content-carousel-arrow content-carousel-next";nextButton.setAttribute("aria-label","Next media");nextButton.textContent="›";
+  const counter=document.createElement("span");counter.className="content-carousel-counter";counter.setAttribute("aria-live","polite");
+  stage.append(prevButton,nextButton,counter);box.appendChild(stage);
+  let index=0,resizeTimer=null;const slides=[];
+  const stageMaxHeight=()=>Math.min(window.innerWidth<600?330:440,Math.max(250,window.innerHeight*.64));
+  function sizeFrame(frame,w,h){
+    if(!(w>0&&h>0))return;
+    frame.dataset.naturalW=String(w);frame.dataset.naturalH=String(h);frame.dataset.ratio=`${w} / ${h}`;
+    frame.style.aspectRatio=`${w} / ${h}`;
+    if(typeof positionSlides==="function")positionSlides();
+  }
+  function makeSlide(entry,i){
+    const frame=document.createElement("div");frame.className="content-carousel-slide";frame.dataset.index=String(i);frame.setAttribute("aria-label",`Media ${i+1}`);
+    let src=entry.src;if(entry.file&&!entry.file.legacy)src=URL.createObjectURL(entry.file.blob||entry.file);
+    if(entry.youtubeId||entry.instagramUrl){
+      const parts=(entry.ratio||"9 / 16").split("/").map(v=>Number(v.trim()));sizeFrame(frame,parts[0]||9,parts[1]||16);
+      frame.classList.add(entry.instagramUrl?"content-carousel-instagram":"content-carousel-youtube");
+      if(entry.youtubeId){const preview=document.createElement("img");preview.className="content-carousel-preview";preview.alt="";preview.loading="eager";preview.src=`https://i.ytimg.com/vi/${entry.youtubeId}/hqdefault.jpg`;preview.addEventListener("error",()=>{preview.src=`https://i.ytimg.com/vi/${entry.youtubeId}/mqdefault.jpg`;},{once:true});frame.appendChild(preview);}
+      if(entry.instagramUrl){
+        const preview=document.createElement("div");preview.className="content-carousel-instagram-preview";preview.innerHTML='<span class="instagram-preview-mark">IG</span><span class="instagram-preview-play">▶</span><span class="instagram-preview-label">INSTAGRAM REEL</span>';frame.appendChild(preview);
+      }
+      const iframe=document.createElement("iframe");iframe.className="youtube-embed-frame";iframe.title=entry.label||"Embedded video";iframe.loading="eager";iframe.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";iframe.allowFullscreen=true;iframe.referrerPolicy="strict-origin-when-cross-origin";
+      // Use the platform's native player controls. No custom sound overlay is placed
+      // over the video, so subtitles and the seek bar remain fully accessible.
+      iframe.dataset.embedUrl=entry.instagramUrl?`${entry.instagramUrl.replace(/\/$/,"")}/embed`:`https://www.youtube-nocookie.com/embed/${entry.youtubeId}?playsinline=1&rel=0&autoplay=0&mute=0&controls=1&loop=0`;
+      frame.appendChild(iframe);
+      frame.dataset.external="true";
+    }else{
+      const f=entry.file?.blob||entry.file;
+      const type=entry.isVideo||entry.file?.type==="video"||String(entry.file?.type||f?.type||"").startsWith("video/")||/\.(mp4|mov|webm|m4v)$/i.test(String(entry.path||entry.file?.name||entry.meta?.name||""));
+      if(type){
+        const video=document.createElement("video");video.src=src||entry.path;video.playsInline=true;video.preload="auto";video.loop=false;video.controls=true;video.muted=false;video.defaultMuted=false;video.controlsList="nofullscreen";video.setAttribute("playsinline","");video.setAttribute("controls","");video.setAttribute("controlsList","nofullscreen");
+        video.addEventListener("loadedmetadata",()=>sizeFrame(frame,video.videoWidth,video.videoHeight),{once:true});
+        // Capture a meaningful frame around the first second, rather than the
+        // opening slate/black frame. Side cards use this real video still.
+        let thumbnailMade=false,thumbnailSeekStarted=false;
+        const makeVideoThumbnail=()=>{
+          if(thumbnailMade||!video.videoWidth||!video.videoHeight||video.readyState<2)return;
+          try{
+            const canvas=document.createElement("canvas");canvas.width=video.videoWidth;canvas.height=video.videoHeight;
+            const context=canvas.getContext("2d");context.drawImage(video,0,0,canvas.width,canvas.height);
+            const pixels=context.getImageData(0,0,Math.min(64,canvas.width),Math.min(64,canvas.height)).data;
+            let total=0;for(let p=0;p<pixels.length;p+=4)total+=(pixels[p]+pixels[p+1]+pixels[p+2])/3;
+            const average=total/Math.max(1,pixels.length/4);
+            // If the chosen moment is still almost black, move slightly further in.
+            if(average<13 && video.duration>1.7 && video.currentTime<1.45){
+              try{video.currentTime=Math.min(1.6,video.duration*.55);return;}catch(_){}
+            }
+            const thumb=document.createElement("img");thumb.className="content-carousel-video-thumb";thumb.alt="Video preview";thumb.decoding="async";thumb.src=canvas.toDataURL("image/jpeg",.88);
+            frame.insertBefore(thumb,video);thumbnailMade=true;
+          }catch(error){console.debug("Video preview frame not available yet",error);}
+        };
+        const seekToPreview=()=>{
+          if(thumbnailSeekStarted||!Number.isFinite(video.duration)||video.duration<=0)return;
+          thumbnailSeekStarted=true;
+          try{video.currentTime=Math.min(1.05,Math.max(.15,video.duration*.22));}
+          catch(_){setTimeout(makeVideoThumbnail,700);}
+        };
+        video.addEventListener("loadeddata",()=>{if(i!==index)video.pause();seekToPreview();makeVideoThumbnail();});
+        video.addEventListener("seeked",makeVideoThumbnail);
+        video.addEventListener("loadedmetadata",()=>{seekToPreview();});
+        setTimeout(()=>{if(!thumbnailMade){seekToPreview();makeVideoThumbnail();}},900);
+        setTimeout(()=>{if(!thumbnailMade)makeVideoThumbnail();},1800);
+        const fullscreen=document.createElement("button");fullscreen.type="button";fullscreen.className="content-carousel-fullscreen";fullscreen.setAttribute("aria-label","Open video fullscreen");fullscreen.title="Fullscreen";fullscreen.textContent="⛶";
+        fullscreen.addEventListener("click",async event=>{
+          event.preventDefault();event.stopPropagation();
+          try{
+            if(document.fullscreenElement){await document.exitFullscreen();}
+            else if(frame.requestFullscreen){await frame.requestFullscreen();}
+            else if(video.webkitEnterFullscreen){video.webkitEnterFullscreen();}
+          }catch(error){console.warn("Fullscreen unavailable",error);}
+        });
+        frame.appendChild(video);frame.appendChild(fullscreen);
+        video.addEventListener("error",()=>{frame.classList.add("content-carousel-media-error");video.remove();fullscreen.remove();frame.textContent="MEDIA COULD NOT BE PLAYED IN THIS BROWSER";},{once:true});
+      }else{
+        const img=document.createElement("img");img.alt=`${sectionKey==="sport1"?"Sport":"School"} content ${i+1}`;img.loading="lazy";img.src=src||entry.path;
+        img.addEventListener("load",()=>sizeFrame(frame,img.naturalWidth,img.naturalHeight),{once:true});img.addEventListener("error",()=>{frame.classList.add("content-carousel-media-error");img.remove();frame.textContent="MEDIA COULD NOT BE PLAYED IN THIS BROWSER";},{once:true});frame.appendChild(img);
+      }
+    }
+    track.appendChild(frame);slides.push(frame);
+  }
+  uniqueEntries.forEach(makeSlide);
+  function updateActive(){
+    slides.forEach((slide,i)=>{
+      const active=i===index,prev=i===(index-1+slides.length)%slides.length&&slides.length>1,next=i===(index+1)%slides.length&&slides.length>1;
+      slide.classList.toggle("is-active",active);slide.classList.toggle("is-prev",prev);slide.classList.toggle("is-next",next);slide.classList.toggle("is-hidden",!active&&!prev&&!next);
+      slide.style.visibility=active||prev||next?"visible":"hidden";slide.style.pointerEvents=active?"auto":"none";slide.style.opacity=active?"1":".58";slide.style.zIndex=active?"3":"1";
+      const video=slide.querySelector("video");
+      const thumb=slide.querySelector(".content-carousel-video-thumb");
+      if(thumb)thumb.style.display=active?"none":"block";
+      if(video){
+        // Never autoplay. The visitor uses the browser's own Play/volume/seek controls.
+        video.controls=true;video.muted=false;video.defaultMuted=false;
+        if(!active){video.pause();try{video.currentTime=0;}catch(_){}}
+      }
+      const iframe=slide.querySelector("iframe");if(iframe){iframe.style.visibility=active?"visible":"hidden";if(active){if(iframe.src!==iframe.dataset.embedUrl)iframe.src=iframe.dataset.embedUrl;}else if(iframe.src&&iframe.src!=="about:blank"){iframe.src="about:blank";}}
+      if(!active)slide.classList.remove("needs-play");
+    });
+    counter.textContent=`${index+1} / ${slides.length}`;
+    prevButton.disabled=slides.length<2;nextButton.disabled=slides.length<2;
+    positionSlides();
+  }
+  function positionSlides(){
+    const sw=stage.clientWidth||box.clientWidth||900,sh=stage.clientHeight||stageMaxHeight(),center=sw/2;
+    const active=slides[index];if(!active)return;
+    const dimensions=slide=>{const w=Number(slide.dataset.naturalW)||9,h=Number(slide.dataset.naturalH)||16;return {ratio:w/h,w,h};};
+    const fit=(slide,maxW,maxH)=>{const {ratio,w,h}=dimensions(slide);let width=Math.min(maxW,maxH*ratio),height=width/ratio;if(height>maxH){height=maxH;width=height*ratio;}slide.style.setProperty("width",`${Math.max(1,Math.round(width))}px`,"important");slide.style.setProperty("height",`${Math.max(1,Math.round(height))}px`,"important");slide.style.setProperty("aspect-ratio",`${w} / ${h}`,"important");return {width,height};};
+    const activeSize=fit(active,Math.min(sw*.47,560),sh*.92);const gap=Math.max(10,Math.min(22,sw*.022));
+    slides.forEach((slide,i)=>{
+      if(slide.classList.contains("is-hidden")){slide.style.visibility="hidden";return;}
+      const isActive=i===index,isPrev=slide.classList.contains("is-prev"),isNext=slide.classList.contains("is-next");
+      const sideSize=isActive?activeSize:fit(slide,Math.min(sw*.235,260),sh*.72);let left=center-sideSize.width/2,scale=.88;
+      if(isActive){left=center-activeSize.width/2;scale=1;}
+      else if(isPrev){left=center-activeSize.width/2-gap-sideSize.width;scale=.84;}
+      else if(isNext){left=center+activeSize.width/2+gap;scale=.84;}
+      // Keep the three-card composition visible even when a landscape media is in the center.
+      left=Math.max(2,Math.min(sw-sideSize.width-2,left));
+      slide.style.setProperty("left",`${Math.round(left)}px`,`important`);slide.style.setProperty("top","50%","important");slide.style.setProperty("transform",`translateY(-50%) scale(${scale})`,`important`);slide.style.setProperty("z-index",isActive?"3":"1","important");
+    });
+  }
+  function go(delta){if(slides.length<2)return;index=(index+delta+slides.length)%slides.length;updateActive();}
+  prevButton.addEventListener("click",event=>{event.preventDefault();event.stopPropagation();go(-1)});
+  nextButton.addEventListener("click",event=>{event.preventDefault();event.stopPropagation();go(1)});
+  stage.addEventListener("keydown",event=>{if(event.key==="ArrowLeft"){event.preventDefault();go(-1)}else if(event.key==="ArrowRight"){event.preventDefault();go(1)}});
+  let startX=0,startY=0;
+  stage.addEventListener("touchstart",e=>{const t=e.changedTouches[0];startX=t.clientX;startY=t.clientY;},{passive:true});
+  stage.addEventListener("touchend",e=>{const t=e.changedTouches[0],dx=t.clientX-startX,dy=t.clientY-startY;if(Math.abs(dx)>35&&Math.abs(dx)>Math.abs(dy)*1.15)go(dx<0?1:-1);},{passive:true});
+  let pointerX=0,pointerY=0;stage.addEventListener("pointerdown",e=>{if(e.pointerType==="mouse"){pointerX=e.clientX;pointerY=e.clientY;}});
+  stage.addEventListener("pointerup",e=>{if(e.pointerType!=="mouse")return;const dx=e.clientX-pointerX,dy=e.clientY-pointerY;if(Math.abs(dx)>35&&Math.abs(dx)>Math.abs(dy)*1.15)go(dx<0?1:-1);});
+  stage.addEventListener("click",e=>{if(e.target.closest(".content-carousel-sound-button"))return;const slide=e.target.closest(".content-carousel-slide");if(!slide)return;const n=Number(slide.dataset.index);if(Number.isInteger(n)&&n!==index)go(n-index);});
+  window.addEventListener("resize",()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{slides.forEach(slide=>{const m=slide.querySelector("video,img");if(m?.videoWidth&&m?.videoHeight)sizeFrame(slide,m.videoWidth,m.videoHeight);else if(m?.naturalWidth&&m?.naturalHeight)sizeFrame(slide,m.naturalWidth,m.naturalHeight);});positionSlides();},120);});
+  updateActive();
+  const stopAllPlayback=()=>slides.forEach(slide=>{const v=slide.querySelector("video");if(v){v.pause();v.muted=false;v.defaultMuted=false;try{v.currentTime=0;}catch(_){}}const f=slide.querySelector("iframe");if(f&&f.src&&f.src!=="about:blank")f.src="about:blank";});
+  document.addEventListener("visibilitychange",()=>{if(document.hidden)stopAllPlayback();else updateActive();});
+  if("IntersectionObserver" in window){const observer=new IntersectionObserver(entries=>{if(!entries[0]?.isIntersecting)stopAllPlayback();else if(!document.hidden)updateActive();},{threshold:.15});observer.observe(box);}
+}
+
+function checkStaticMedia(path,isVideo){
+  return new Promise(resolve=>{
+    const el=document.createElement(isVideo?"video":"img");
+    let done=false; const finish=value=>{if(done)return;done=true;el.removeAttribute("src");resolve(value)};
+    el.onload=()=>finish(true); el.onerror=()=>finish(false);
+    if(isVideo){el.preload="metadata";el.onloadedmetadata=()=>finish(true);}
+    el.src=path;
+    setTimeout(()=>finish(false),7000);
+  });
+}
+
+async function renderAboutCarousel(box,items,sectionKey="about"){
+  box.innerHTML="";box.classList.add("media-managed-host","about-carousel-host");box.classList.remove("media-managed-multi");
+  const viewport=document.createElement("div");viewport.className="about-carousel-viewport";
+  const track=document.createElement("div");track.className="about-carousel-track";
+  const dots=document.createElement("div");dots.className="about-carousel-dots";
+  const slides=[];
+  for(const meta of items.slice(0,4)){
+    let file=null;
+    try{if(meta.src)file={legacy:true,src:meta.src,type:"image"};else{const pending=pendingMediaFiles[mediaStorageKey(sectionKey,meta.id)];file=pending?{blob:pending,type:isVideoFile(pending)?"video":"image"}:await getManagedMedia(sectionKey,meta.id,meta);}}catch(err){console.error("CHERRY LINE About media read error",err)}
+    const slide=document.createElement("div");slide.className="about-carousel-slide";
+    if(!file){slide.classList.add("about-carousel-missing");slide.textContent=`ABOUT PHOTO ${String(slides.length+1).padStart(2,"0")} — UNAVAILABLE`;}
+    else{
+      const src=file.legacy?file.src:URL.createObjectURL(file.blob||file);if(!file.legacy)slide.dataset.objectUrl=src;
+      if(file.type==="video"||String(file.type||"").startsWith("video/")){const v=document.createElement("video");v.src=src;v.controls=true;v.playsInline=true;v.preload="metadata";v.loop=true;v.addEventListener("loadedmetadata",()=>applyMediaRatio(slide,{format:"Original"},v.videoWidth,v.videoHeight),{once:true});slide.appendChild(v);}
+      else{const img=document.createElement("img");img.alt=`About photo ${slides.length+1}`;img.loading=slides.length===0?"eager":"lazy";img.src=src;img.addEventListener("load",()=>applyMediaRatio(slide,{format:"Original"},img.naturalWidth,img.naturalHeight),{once:true});slide.appendChild(img);}
+    }
+    track.appendChild(slide);slides.push(slide);
+  }
+  if(!slides.length){box.textContent="ADD ABOUT PHOTO 01";return;}
+  viewport.appendChild(track);box.append(viewport,dots);
+  let index=0,timer=null,resizeTimer=null;
+  function setActive(next,fromDot=false){
+    index=(next+slides.length)%slides.length;
+    slides.forEach(slide=>{slide.style.setProperty("width",`${viewport.clientWidth}px`,"important");slide.style.setProperty("min-width",`${viewport.clientWidth}px`,"important");});
+    track.style.transform=`translate3d(-${index*viewport.clientWidth}px,0,0)`;
+    slides.forEach((slide,i)=>{slide.classList.toggle("is-active",i===index);const v=slide.querySelector("video");if(v&&i!==index)v.pause();});
+    dots.querySelectorAll("button").forEach((dot,i)=>{dot.classList.toggle("active",i===index);dot.setAttribute("aria-current",i===index?"true":"false");});
+    const active=slides[index],img=active.querySelector("img"),video=active.querySelector("video");
+    if(img?.naturalWidth&&img?.naturalHeight)sizeContentCarouselToMedia(box,{format:"Original"},img.naturalWidth,img.naturalHeight);
+    else if(video?.videoWidth&&video?.videoHeight)sizeContentCarouselToMedia(box,{format:"Original"},video.videoWidth,video.videoHeight);
+    if(fromDot)restart();
+  }
+  slides.forEach((_,i)=>{const dot=document.createElement("button");dot.type="button";dot.setAttribute("aria-label",`Show About photo ${i+1}`);dot.addEventListener("click",()=>setActive(i,true));dots.appendChild(dot);});
+  function restart(){clearInterval(timer);if(slides.length>1)timer=setInterval(()=>setActive(index+1),3800);}
+  let sx=0,sy=0;viewport.addEventListener("touchstart",e=>{sx=e.changedTouches[0]?.clientX||0;sy=e.changedTouches[0]?.clientY||0;},{passive:true});viewport.addEventListener("touchend",e=>{const dx=(e.changedTouches[0]?.clientX||0)-sx,dy=(e.changedTouches[0]?.clientY||0)-sy;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.2){setActive(index+(dx<0?1:-1));restart();}},{passive:true});
+  window.addEventListener("resize",()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{track.style.transition="none";slides.forEach(slide=>{slide.style.setProperty("width",`${viewport.clientWidth}px`,"important");slide.style.setProperty("min-width",`${viewport.clientWidth}px`,"important");});track.style.transform=`translate3d(-${index*viewport.clientWidth}px,0,0)`;void track.offsetHeight;track.style.transition="";},100);});
+  setActive(0);restart();
+}
+
+async function buildEditor(){
+  buildSkillsEditor();
+  bindSkillsEditor();
+  buildHowEditor();
+  const root=document.getElementById("editorFields");root.innerHTML="";
+
+  const motorsportKeys=["spaTag","spaTitle","spaText","twentyFourTag","twentyFourTitle","twentyFourText"];
+  const motorsportLabels={
+    spaTag:"BELGIAN GRAND PRIX — LABEL / DATE",
+    spaTitle:"BELGIAN GRAND PRIX — TITLE",
+    spaText:"BELGIAN GRAND PRIX — DESCRIPTION",
+    twentyFourTag:"24 HOURS OF SPA — LABEL / DATE",
+    twentyFourTitle:"24 HOURS OF SPA — TITLE",
+    twentyFourText:"24 HOURS OF SPA — DESCRIPTION"
+  };
+  const motorsportSection=document.createElement("section");
+  motorsportSection.className="editor-section motorsport-copy-editor";
+  motorsportSection.innerHTML='<div class="editor-section-title">FESTIVALS — TEXTES DES EXPÉRIENCES</div><p class="editor-help">Les anciennes rubriques de sport automobile ne sont plus affichées sur le site public, puis clique sur SAVE CHANGES.</p><div class="motorsport-copy-fields"></div>';
+  const motorsportFields=motorsportSection.querySelector(".motorsport-copy-fields");
+  motorsportKeys.forEach(key=>{
+    const wrap=document.createElement("div");wrap.className="field";
+    const label=document.createElement("label");label.htmlFor="edit-"+key;label.textContent=motorsportLabels[key];
+    const textarea=document.createElement("textarea");textarea.id="edit-"+key;textarea.dataset.edit=key;
+    const current=state.text[key];textarea.value=(current!==undefined && String(current).trim()!=="")?current:defaultText[key];
+    wrap.append(label,textarea);motorsportFields.appendChild(wrap);
+  });
+  root.appendChild(motorsportSection);
+
+  Object.keys(defaultText).filter(key=>!motorsportKeys.includes(key)).forEach(key=>{
+    const wrap=document.createElement("div");wrap.className="field";
+    wrap.innerHTML=`<label>${key.replace(/([A-Z])/g," $1").toUpperCase()}</label><textarea data-edit="${key}"></textarea>`;
+    wrap.querySelector("textarea").value=(key==="conception"?defaultText.conception:(state.text[key]!==undefined?state.text[key]:defaultText[key]||""));root.appendChild(wrap);
+  });
+
+  const mediaTitle=document.createElement("section");
+  mediaTitle.className="editor-section unified-media-manager";
+  mediaTitle.innerHTML=`<div class="editor-section-title">MEDIA — UNIFIED MANAGER</div>
+    <p class="editor-help">Le même système est utilisé pour tous les médias. Ajoute, remplace, supprime, réorganise et définis le format de chaque média indépendamment. ABOUT accepte 4 médias ; SPORT CONTENT et SCHOOL CONTENT acceptent jusqu’à 20 médias chacun ; GP de Spa et 24H de Spa acceptent jusqu’à 5 médias chacun.</p>
+    <div class="media-manager-sections"></div>`;
+  root.appendChild(mediaTitle);
+  const host=mediaTitle.querySelector(".media-manager-sections");
+
+  for(const section of MEDIA_SECTIONS){
+    const block=document.createElement("div");
+    block.className="media-manager-section";
+    block.dataset.mediaSection=section.key;
+    block.innerHTML=`<div class="media-manager-head"><h3>${section.label}</h3><div class="media-add-wrap"><button type="button" class="text-button media-add-button" data-media-add="${section.key}">+ ADD MEDIA</button><input type="file" hidden accept="image/*,video/*,.mov" data-media-add-input="${section.key}"></div></div><div class="media-manager-list"></div>`;
+    host.appendChild(block);
+    await renderMediaManagerSection(section.key,block.querySelector(".media-manager-list"));
+  }
+  bindMediaManagerActions(mediaTitle);
+  bindMediaAddControls(mediaTitle);
+}
+function bindMediaManagerActions(host){
+  if(host.dataset.managerActionsBound==="1")return;
+  host.dataset.managerActionsBound="1";
+  host.addEventListener("click",async e=>{
+    const button=e.target.closest("button");
+    if(!button)return;
+    const up=button.dataset.mediaUp, down=button.dataset.mediaDown, del=button.dataset.mediaDelete;
+    const action=up||down||del;
+    if(!action)return;
+    e.preventDefault();
+    const [section,id]=action.split(":");
+    const items=getMediaMeta(section);
+    const index=items.findIndex(x=>String(x.id)===String(id));
+    if(index<0)return;
+    if(up){
+      if(index===0)return;
+      [items[index-1],items[index]]=[items[index],items[index-1]];
+    }else if(down){
+      if(index===items.length-1)return;
+      [items[index],items[index+1]]=[items[index+1],items[index]];
+    }else if(del){
+      const meta=items[index];
+      if(!confirm("Supprimer ce média ?"))return;
+      pendingMediaDeletes.push({section,id,meta});
+      delete pendingMediaFiles[mediaStorageKey(section,id)];
+      items.splice(index,1);
+    }
+    setMediaMeta(section,items);
+    const list=host.querySelector(`[data-media-section="${section}"] .media-manager-list`);
+    await renderMediaManagerSection(section,list);
+    bindMediaAddControls(host);
+  });
+}
+
+function bindMediaAddControls(host){
+  host.querySelectorAll("[data-media-add]").forEach(button=>{
+    if(button.dataset.bound==="1")return;
+    button.dataset.bound="1";
+    button.addEventListener("click",e=>{e.preventDefault();host.querySelector(`[data-media-add-input="${button.dataset.mediaAdd}"]`)?.click()});
+  });
+  host.querySelectorAll("[data-media-add-input]").forEach(input=>{
+    if(input.dataset.bound==="1")return;
+    input.dataset.bound="1";
+    input.addEventListener("change",async e=>{
+      const file=e.target.files?.[0];
+      if(!file)return;
+      const section=input.dataset.mediaAddInput;
+      try{
+        const sectionConfig=MEDIA_SECTIONS.find(x=>x.key===section);
+        const existingCount=getMediaMeta(section).length;
+        if(sectionConfig?.maxItems && existingCount>=sectionConfig.maxItems){throw new Error(`${sectionConfig.label.replace(/^\d+\s*[—-]\s*/,"")} est limité à ${sectionConfig.maxItems} médias.`)}
+        const isVideo=isVideoFile(file);
+        const isImage=String(file.type||"").toLowerCase().startsWith("image/");
+        if(!isImage&&!isVideo)throw new Error("Format non supporté. Utilise une image ou une vidéo.");
+        const id=makeMediaId(section);
+        const meta={id,type:isVideo?"video":"image",format:MEDIA_SECTIONS.find(x=>x.key===section)?.defaultFormat||"Original",customRatio:"",legacy:false,mime:isVideo?videoTypeForFile(file):String(file.type||"")};
+        pendingMediaFiles[mediaStorageKey(section,id)]=file;
+        setMediaMeta(section,[...getMediaMeta(section),meta]);
+        const list=host.querySelector(`[data-media-section="${section}"] .media-manager-list`);
+        await renderMediaManagerSection(section,list);
+        bindMediaAddControls(host);
+      }catch(err){
+        console.error("CHERRY LINE media add error",err);
+        alert(err?.message||"Unable to add this media.");
+      }finally{
+        input.value="";
+      }
+    });
+  });
+}
+
+async function renderMediaManagerSection(section,listHost){
+  listHost.innerHTML="";
+  const items=getMediaMeta(section);
+  for(let i=0;i<items.length;i++){
+    const meta=items[i];
+    const row=document.createElement("div"); row.className="media-manager-card"; row.dataset.mediaId=meta.id;
+    row.innerHTML=`<div class="media-manager-card-top"><strong>MEDIA ${String(i+1).padStart(2,"0")}</strong><div><button type="button" class="text-button" data-media-up="${section}:${meta.id}" ${i===0?"disabled":""}>↑</button><button type="button" class="text-button" data-media-down="${section}:${meta.id}" ${i===items.length-1?"disabled":""}>↓</button><button type="button" class="text-button" data-media-delete="${section}:${meta.id}">DELETE</button></div></div><div class="media-manager-preview"></div><div class="media-manager-controls"><label>TYPE<select class="media-type"><option value="image">IMAGE</option><option value="video">VIDEO</option></select></label><label>FORMAT<select class="media-format">${MEDIA_FORMATS.map(x=>`<option value="${x}">${x}</option>`).join("")}</select></label><label class="media-custom-ratio">RATIO<input class="media-ratio" type="text" placeholder="ex. 5:4" value=""></label></div><div class="media-manager-actions"><label class="btn btn-outline-dark media-replace">REPLACE<input type="file" hidden accept="image/*,video/*,.mov"></label></div>`;
+    const typeSel=row.querySelector(".media-type"),formatSel=row.querySelector(".media-format"),ratioInput=row.querySelector(".media-ratio"),ratioWrap=row.querySelector(".media-custom-ratio"),preview=row.querySelector(".media-manager-preview");
+    typeSel.value=meta.type||"image"; formatSel.value=MEDIA_FORMATS.includes(meta.format)?meta.format:"Original"; ratioInput.value=meta.customRatio||""; ratioWrap.style.display=formatSel.value==="Custom"?"block":"none";
+    formatSel.addEventListener("change",()=>{ratioWrap.style.display=formatSel.value==="Custom"?"block":"none";applyMediaRatio(preview,{format:formatSel.value,customRatio:ratioInput.value})});
+    ratioInput.addEventListener("input",()=>{if(formatSel.value==="Custom")applyMediaRatio(preview,{format:"Custom",customRatio:ratioInput.value})});
+    typeSel.addEventListener("change",()=>{meta.type=typeSel.value});
+    row.querySelector(".media-replace input").addEventListener("change",async e=>{
+      const file=e.target.files?.[0];
+      if(!file)return;
+      try{
+        const isVideo=isVideoFile(file);
+        const isImage=String(file.type||"").toLowerCase().startsWith("image/");
+        if(!isImage&&!isVideo)throw new Error("Format non supporté. Utilise une image ou une vidéo.");
+        meta.type=isVideo?"video":"image";
+        meta.mime=isVideo?videoTypeForFile(file):String(file.type||"");
+        pendingMediaFiles[mediaStorageKey(section,meta.id)]=file;
+        const oldUrl=preview.dataset.objectUrl;
+        const url=URL.createObjectURL(file);
+        if(oldUrl)URL.revokeObjectURL(oldUrl);
+        preview.dataset.objectUrl=url;
+        preview.innerHTML="";
+        if(isVideo){
+          const v=attachSafeVideo(document.createElement("video"),preview,meta);
+          v.src=url;
+          preview.appendChild(v);
+        }else{
+          const img=document.createElement("img");
+          img.src=url;img.alt="";
+          img.addEventListener("load",()=>applyMediaRatio(preview,meta,img.naturalWidth,img.naturalHeight),{once:true});
+          applyMediaRatio(preview,meta);
+          preview.appendChild(img);
+        }
+      }catch(err){
+        console.error("CHERRY LINE media replace error",err);
+        alert(err?.message||"Unable to replace this media.");
+      }finally{e.target.value="";}
+    });
+    const pending=pendingMediaFiles[mediaStorageKey(section,meta.id)];
+    let file=null;
+    try{
+      file=pending?{blob:pending,type:pending.type.startsWith("video/")?"video":"image"}:await getManagedMedia(section,meta.id,meta);
+    }catch(err){
+      console.error("CHERRY LINE editor media read error",section,meta.id,err);
+    }
+    if(file){
+      const src=file.legacy?file.src:URL.createObjectURL(file.blob); if(!file.legacy)preview.dataset.objectUrl=src; preview.innerHTML="";
+      if(file.type==="video" || String(file.type||"").startsWith("video/")){const v=attachSafeVideo(document.createElement("video"),preview,meta);v.src=src;preview.appendChild(v)}else{const img=document.createElement("img");img.src=src;img.alt="";img.addEventListener("load",()=>applyMediaRatio(preview,meta,img.naturalWidth,img.naturalHeight),{once:true});preview.appendChild(img)}
+    }else preview.textContent="NO MEDIA";
+    listHost.appendChild(row);
+  }
+}
+async function collectMediaManager(){
+  for(const section of MEDIA_SECTIONS){
+    const host=document.querySelector(`[data-media-section="${section.key}"] .media-manager-list`);
+    if(!host)continue;
+    const current=getMediaMeta(section.key);
+    const next=[];
+    host.querySelectorAll(".media-manager-card").forEach((row,index)=>{
+      const old=current.find(x=>String(x.id)===String(row.dataset.mediaId))||{};
+      const type=row.querySelector(".media-type").value;
+      const format=row.querySelector(".media-format").value;
+      const customRatio=row.querySelector(".media-ratio").value.trim();
+      next.push({...old,id:row.dataset.mediaId,type,format,customRatio:format==="Custom"?customRatio:""});
+    });
+    setMediaMeta(section.key,next);
+  }
+}
+async function validateVideoFile(file){
+  if(!isVideoFile(file))throw new Error("Invalid video file.");
+  // Validation is intentionally limited to the file type. Codec decoding is browser-dependent
+  // and must never block storage of a valid user file.
+  return true;
+}
+
+async function saveManagedMediaFiles(){
+  await ensureMediaDB();
+  const writes=[];
+  for(const section of MEDIA_SECTIONS){
+    const host=document.querySelector(`[data-media-section="${section.key}"] .media-manager-list`); if(!host)continue;
+    for(const row of host.querySelectorAll(".media-manager-card")){
+      const id=row.dataset.mediaId,storageKey=mediaStorageKey(section.key,id),file=pendingMediaFiles[storageKey];
+      if(file){
+        const isVideo=isVideoFile(file);
+        writes.push({section,id,storageKey,file});
+      }
+    }
+  }
+  // Write and verify all replacements/additions before deleting anything.
+  for(const item of writes){
+    await putMedia(item.storageKey,item.file);
+    const saved=await getMedia(item.storageKey);
+    if(!saved)throw new Error(`Media ${item.section} / ${item.id} could not be verified after saving.`);
+  }
+  for(const item of writes){
+    const meta=getMediaMeta(item.section).find(x=>String(x.id)===String(item.id));
+    if(meta){meta.legacy=false;delete meta.sourceKey;meta.type=isVideoFile(item.file)?"video":"image";meta.mime=videoTypeForFile(item.file)}
+    delete pendingMediaFiles[item.storageKey];
+  }
+}
+
+async function saveEditorChanges(){
+  const saveButton=document.getElementById("saveSite");
+  const original=saveButton.textContent;
+  saveButton.disabled=true;saveButton.textContent="SAVING…";
+  let mediaErrors=[];
+  // Snapshot persistent state so a failed storage operation cannot write partial
+  // metadata over the last known-good localStorage state.
+  const persistentBefore=localStorage.getItem("leaCherryLine");
+  const mediaMetaBefore=JSON.parse(JSON.stringify(state.mediaMeta||{}));
+  readSkillsEditor();readHowEditor();
+  document.querySelectorAll("[data-edit]").forEach(x=>{
+    state.text[x.dataset.edit]=x.value;
+  });
+  state.text={...defaultText,...state.text};
+  try{
+    await collectMediaManager();
+    await ensureMediaDB();
+    await saveManagedMediaFiles();
+    await migrateManagedMedia();
+    // Only now remove files explicitly deleted by the user. If saving/migration
+    // failed above, the old stored files remain available.
+    for(const item of pendingMediaDeletes)await deleteManagedMedia(item.section,item.id,item.meta);
+    pendingMediaDeletes=[];
+    // Persist only after all media writes and migration have completed.
+    localStorage.setItem("leaCherryLine",JSON.stringify(state));
+    await render();
+    if(window.refreshCherryGalleries)await window.refreshCherryGalleries();
+    document.getElementById("editor").close();
+    saveButton.textContent="SAVED ✓";
+  }catch(e){
+    console.error("CHERRY LINE media save error",e);
+    state.mediaMeta=mediaMetaBefore;
+    if(persistentBefore===null)localStorage.removeItem("leaCherryLine");
+    else localStorage.setItem("leaCherryLine",persistentBefore);
+    mediaErrors.push(e?.message||"media save failed");
+    // Keep the editor open and preserve the last saved metadata if any write fails.
+  }finally{
+    saveButton.disabled=false;
+    if(mediaErrors.length)saveButton.textContent="SAVE FAILED";
+    else setTimeout(()=>{saveButton.textContent=original},900);
+  }
+  if(mediaErrors.length)alert("La sauvegarde a échoué. Tes références média précédentes ont été conservées. Garde cette fenêtre ouverte et réessaie.\n\n"+mediaErrors.join("\n"));
+  else alert("Modifications enregistrées.");
+}
+
+// Editor controls are optional on the public portfolio. Only wire them when the editor exists.
+if(document.getElementById("saveSite")){
+document.getElementById("saveSite").addEventListener("click",saveEditorChanges);
+
+document.getElementById("resetSite").onclick=()=>{if(confirm("Reset all edits?")){localStorage.removeItem("leaCherryLine");location.reload()}};
+document.getElementById("exportSite").onclick=()=>{const blob=new Blob([JSON.stringify(state)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="lea-cherry-line-backup.json";a.click()};
+document.getElementById("importSite").onchange=e=>{
+ const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{state=JSON.parse(r.result);state.text={...defaultText,...(state.text||{})}; for(const [k,v] of Object.entries(defaultText)){if(typeof state.text[k]!=="string"||!state.text[k].trim())state.text[k]=v;}
+state.media=state.media||{};state.skills=state.skills||JSON.parse(JSON.stringify(defaultSkills));state.how=(Array.isArray(state.how)&&state.how.length)?state.how:JSON.parse(JSON.stringify(defaultHow));localStorage.setItem("leaCherryLine",JSON.stringify(state));location.reload()}catch{alert("Invalid backup file.")}};r.readAsText(f)
+};
+
+}
+
+let activeMainFilter = "all";
+let activeContentFilter = "all";
+
+const workCards = Array.from(document.querySelectorAll(".work-item"));
+const mainFilters = Array.from(document.querySelectorAll(".filters button[data-filter]"));
+const contentFilters = Array.from(document.querySelectorAll(".content-subfilters .content-sub"));
+const contentFilterBar = document.querySelector(".content-subfilters");
+
+// Explicit category mapping: each card is shown only when its own data attributes match.
+const WORK_FILTERS = {
+  all: card => true,
+  event: card => card.dataset.type === "event",
+  journalism: card => card.dataset.type === "journalism",
+  podcast: card => card.dataset.type === "podcast",
+  content: card => card.dataset.type === "content"
+};
+const CONTENT_FILTERS = {
+  all: card => card.dataset.type === "content",
+  sport: card => card.dataset.type === "content" && card.dataset.contentCategory === "sport",
+  school: card => card.dataset.type === "content" && card.dataset.contentCategory === "school"
+};
+const workGrid = document.querySelector(".work-grid");
+function applyWorkFilter(mainFilter, contentFilter = "all") {
+  const main = Object.hasOwn(WORK_FILTERS, mainFilter) ? mainFilter : "all";
+  const sub = Object.hasOwn(CONTENT_FILTERS, contentFilter) ? contentFilter : "all";
+  activeMainFilter = main;
+  activeContentFilter = main === "content" ? sub : "all";
+  workCards.forEach(card => {
+    const predicate = main === "content" ? CONTENT_FILTERS[activeContentFilter] : WORK_FILTERS[main];
+    const visible = Boolean(predicate(card));
+    card.hidden = !visible;
+    if (visible) card.style.removeProperty("display");
+    else card.style.setProperty("display", "none", "important");
+    card.classList.toggle("hidden", !visible);
+    card.setAttribute("aria-hidden", String(!visible));
+  });
+  const visibleCount = workCards.reduce((count, card) => count + (card.hidden ? 0 : 1), 0);
+  if (workGrid) workGrid.classList.toggle("is-single-filter", main !== "all" && visibleCount === 1);
+  mainFilters.forEach(button => {
+    const active = button.dataset.filter === main;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  if (contentFilterBar) {
+    contentFilterBar.classList.toggle("visible", main === "content");
+    contentFilterBar.setAttribute("aria-hidden", String(main !== "content"));
+  }
+  contentFilters.forEach(button => {
+    const active = main === "content" && button.dataset.content === activeContentFilter;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+}
+// One document-level handler survives editor re-renders and keeps all filters in sync.
+document.addEventListener("click", event => {
+  const mainButton = event.target.closest?.("button[data-filter]");
+  if (mainButton && mainButton.closest(".filters")) {
+    event.preventDefault();
+    applyWorkFilter(mainButton.dataset.filter, "all");
+    return;
+  }
+  const subButton = event.target.closest?.("button[data-content]");
+  if (subButton && subButton.closest(".content-subfilters")) {
+    event.preventDefault();
+    applyWorkFilter("content", subButton.dataset.content);
+  }
+}, true);
+applyWorkFilter("all");
+
+mediaDBReady=openMediaDB();
+mediaDBReady.then(async()=>{await migrateManagedMedia();await render()}).catch(render);
+
+
+
+
+/* CHERRY LINE — public Spotify defaults. Saved editor values may override these. */
+const DEFAULT_SPOTIFY_LINKS = {
+  podcast1: "https://open.spotify.com/show/1gCC6MD8U4gTCDobc5bStf?si=28c198ff8c044e3a",
+  podcast2: "https://open.spotify.com/show/0CaUaevlumswWColfDaiZ3?si=d1529f91a21840bd"
+};
+function getCherrySpotifyLinks(){
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem("leaCherryLinks") || "{}"); } catch(e) {}
+  return {
+    podcast1: String(saved.podcast1 || "").trim() || DEFAULT_SPOTIFY_LINKS.podcast1,
+    podcast2: String(saved.podcast2 || "").trim() || DEFAULT_SPOTIFY_LINKS.podcast2
+  };
+}
+
+/* V28 Spotify */
+(function(){
+function links(){return getCherrySpotifyLinks()}
+function hydrate(){
+ const x=links();
+ ["1","2"].forEach(n=>{
+  const input=document.getElementById("spotifyPodcast"+n); if(input) input.value=x["podcast"+n]||"";
+  document.querySelectorAll('[data-spotify-link="podcast'+n+'"]').forEach(a=>{
+   const u=x["podcast"+n]||"#"; a.href=u; a.style.display=u!="#"?"inline-flex":"none";
+  });
+ });
+}
+["1","2"].forEach(n=>{const i=document.getElementById("spotifyPodcast"+n);if(i)i.addEventListener("change",()=>{const x=links();x["podcast"+n]=i.value.trim();localStorage.setItem("leaCherryLinks",JSON.stringify(x));hydrate()})});
+setTimeout(hydrate,300);
+})();
+
+/* V34 — Restore Spotify visual embeds */
+(function(){
+  function links(){ return getCherrySpotifyLinks(); }
+  function spotifyEmbedUrl(url){
+    if(!url) return "";
+    try{
+      const u=new URL(url);
+      if(!u.hostname.includes("spotify.com")) return "";
+      const parts=u.pathname.split("/").filter(Boolean);
+      const type=parts[0], id=parts[1];
+      if(!type || !id) return "";
+      return "https://open.spotify.com/embed/"+type+"/"+id+"?utm_source=generator";
+    }catch(e){return ""}
+  }
+  function hydrateSpotify(){
+    const x=links();
+    [1,2].forEach(n=>{
+      const input=document.getElementById("spotifyPodcast"+n);
+      if(input) input.value=x["podcast"+n]||"";
+      document.querySelectorAll('[data-spotify-embed="podcast'+n+'"]').forEach(box=>{
+        const embed=spotifyEmbedUrl(x["podcast"+n]||"");
+        box.innerHTML=embed
+          ? '<iframe src="'+embed+'" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="eager"></iframe>'
+          : '';
+      });
+    });
+  }
+  [1,2].forEach(n=>{
+    const input=document.getElementById("spotifyPodcast"+n);
+    if(input){
+      input.addEventListener("change",()=>{
+        const x=links();
+        x["podcast"+n]=input.value.trim();
+        localStorage.setItem("leaCherryLinks",JSON.stringify(x));
+        hydrateSpotify();
+      });
+    }
+  });
+  setTimeout(hydrateSpotify,350);
+})();
+
+/* Unified multi-photo gallery */
+(function(){
+  const galleryKeys=(gallery)=>Array.from({length:5},(_,i)=>gallery+(i+1));
+  async function getGalleryItems(gallery){
+    const metas=getMediaMeta(gallery);
+    const out=[];
+    for(const meta of metas){
+      try{
+        const file=await getManagedMedia(gallery,meta.id,meta);
+        if(file)out.push({key:gallery+String(meta.id),blob:file.blob||file,src:file.src,legacy:file.legacy,meta:{...meta,type:meta.type||file.type||""}});
+      }catch(e){console.error("CHERRY LINE gallery read error",gallery,meta.id,e)}
+    }
+    // Fill only missing slots from the older raw-key format. This lets a mixed
+    // gallery recover legacy items without duplicating media already loaded above.
+    for(let i=1;i<=5;i++){
+      const key=gallery+String(i);
+      if(out.some(item=>item.key===key))continue;
+      const blob=await getMedia(key).catch(()=>null);
+      if(blob)out.push({key,blob,meta:{type:String(blob.type||"")}});
+    }
+    if(!out.length && STATIC_MEDIA[gallery]){
+      return STATIC_MEDIA[gallery].map((path,i)=>({key:gallery+String(i+1),src:path,meta:{type:/\.(mp4|mov|webm|m4v)$/i.test(path)?"video":"image",name:path.split("/").pop()}}));
+    }
+    return out.sort((a,b)=>Number(a.key.slice(gallery.length))-Number(b.key.slice(gallery.length)));
+  }
+
+  function itemUrl(item){
+    if(item.src) return {url:item.src,revoke:false};
+    if(item.blob instanceof Blob) return {url:URL.createObjectURL(item.blob), revoke:true};
+    if(item.data) return {url:item.data,revoke:false};
+    if(item instanceof Blob || item instanceof File) return {url:URL.createObjectURL(item), revoke:true};
+    return {url:null,revoke:false};
+  }
+  function openGalleryLightbox(media,isVideo){
+    let modal=document.getElementById('galleryLightbox');
+    if(!modal){
+      modal=document.createElement('div');modal.id='galleryLightbox';modal.className='gallery-lightbox';
+      modal.innerHTML='<button type="button" class="gallery-lightbox-close" aria-label="Close">×</button><div class="gallery-lightbox-stage"></div>';
+      document.body.appendChild(modal);
+      modal.querySelector('.gallery-lightbox-close').addEventListener('click',()=>closeGalleryLightbox());
+      modal.addEventListener('click',e=>{if(e.target===modal)closeGalleryLightbox();});
+      document.addEventListener('keydown',e=>{if(e.key==='Escape')closeGalleryLightbox();});
+    }
+    const stage=modal.querySelector('.gallery-lightbox-stage');stage.innerHTML='';
+    const enlarged=document.createElement(isVideo?'video':'img');enlarged.src=media.currentSrc||media.src;
+    if(isVideo){enlarged.controls=true;enlarged.autoplay=true;enlarged.playsInline=true;}
+    else enlarged.alt=media.alt||'Enlarged portfolio image';
+    stage.appendChild(enlarged);modal.classList.add('is-open');document.body.classList.add('gallery-lightbox-open');
+  }
+  function closeGalleryLightbox(){
+    const modal=document.getElementById('galleryLightbox');if(!modal)return;
+    const video=modal.querySelector('video');if(video)video.pause();
+    modal.classList.remove('is-open');document.body.classList.remove('gallery-lightbox-open');
+  }
+  async function renderGallery(root,items){
+    const track=root.querySelector('.gallery-track'),dots=root.querySelector('.gallery-dots'),empty=root.querySelector('.gallery-empty');
+    if(!track||!dots)return;
+    track.querySelectorAll('img').forEach(img=>{if(img.dataset.objectUrl)URL.revokeObjectURL(img.dataset.objectUrl)});
+    track.innerHTML='';dots.innerHTML='';
+    if(!items.length){if(empty)empty.style.display='flex';return}
+    if(empty)empty.style.display='none';
+    items.forEach((item,i)=>{
+      const s=document.createElement('div');s.className='gallery-slide'+(i===0?' active':'');
+      const info=itemUrl(item); if(!info.url)return;
+      const mediaType=String(item.meta?.type||item.blob?.type||"").toLowerCase();
+      const isVideo=mediaType==="video"||mediaType.startsWith("video/")||/\.(mov|mp4|webm|m4v)$/i.test(String(item.meta?.name||""));
+      const media=isVideo?document.createElement('video'):document.createElement('img');
+      media.src=info.url;
+      if(isVideo){media.controls=true;media.playsInline=true;media.preload='metadata';media.muted=false;media.defaultMuted=false;media.loop=true;}
+      else {media.alt='Portfolio photo '+(i+1);}
+      if(info.revoke)media.dataset.objectUrl=info.url;
+      s.appendChild(media);
+      const zoom=document.createElement('button');zoom.type='button';zoom.className='gallery-zoom';zoom.setAttribute('aria-label','View image large');zoom.innerHTML='<span aria-hidden="true">⤢</span>';s.appendChild(zoom);
+      const openLarge=()=>openGalleryLightbox(media,isVideo);
+      zoom.addEventListener('click',openLarge);
+      media.addEventListener('click',()=>{if(!isVideo)openLarge();});
+      track.appendChild(s);
+      const d=document.createElement('button');d.type='button';d.className='gallery-dot'+(i===0?' active':'');d.setAttribute('aria-label',(isVideo?'Media ':'Photo ')+(i+1));dots.appendChild(d);
+    });
+    let cur=0,timer=null;
+    const show=i=>{
+      const slides=Array.from(track.querySelectorAll('.gallery-slide')),ds=dots.querySelectorAll('.gallery-dot');
+      const previous=cur;cur=(i+slides.length)%slides.length;
+      slides.forEach((x,k)=>{
+        const rel=(k-cur+slides.length)%slides.length;
+        x.classList.toggle('active',k===cur);
+        x.classList.toggle('gallery-before',rel===slides.length-1);
+        x.classList.toggle('gallery-after',rel!==0&&rel!==slides.length-1);
+        x.style.transform=rel===0?'translateX(0)':(rel===slides.length-1?'translateX(-100%)':'translateX(100%)');
+        const v=x.querySelector('video');if(v&&k!==cur)v.pause();
+      });
+      ds.forEach((x,k)=>x.classList.toggle('active',k===cur));
+    };
+    const restart=()=>{clearInterval(timer);if(track.querySelectorAll('.gallery-slide').length>1)timer=setInterval(()=>show(cur+1),3800);};
+    const prev=root.querySelector('.gallery-prev'),next=root.querySelector('.gallery-next');
+    if(prev)prev.onclick=()=>{show(cur-1);restart();};
+    if(next)next.onclick=()=>{show(cur+1);restart();};
+    dots.querySelectorAll('.gallery-dot').forEach((d,i)=>d.onclick=()=>{show(i);restart();});
+    restart();
+    document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInterval(timer);else restart();});
+    let swipeStartX=0,swipeStartY=0;
+    root.addEventListener('touchstart',e=>{swipeStartX=e.changedTouches[0]?.clientX||0;swipeStartY=e.changedTouches[0]?.clientY||0;},{passive:true});
+    root.addEventListener('touchend',e=>{const dx=(e.changedTouches[0]?.clientX||0)-swipeStartX,dy=(e.changedTouches[0]?.clientY||0)-swipeStartY;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)){show(cur+(dx<0?1:-1));restart();}},{passive:true});
+  }
+  async function boot(){for(const gallery of ['spa','24h']){const root=document.querySelector('[data-gallery="'+gallery+'"]');if(root)await renderGallery(root,await getGalleryItems(gallery))}}
+  window.refreshCherryGalleries=boot;
+  setTimeout(boot,250);
+})();
+
+render();
+
+/* V101 — contact social links: preserve previously saved YouTube URL without retaining Creative Content. */
+(function(){
+  const K="leaCherryLinks";
+  const get=()=>{try{return JSON.parse(localStorage.getItem(K)||"{}")}catch(e){return{}}};
+  const put=x=>localStorage.setItem(K,JSON.stringify(x));
+  const link=document.getElementById("youtubeContactLink");
+  const input=document.getElementById("contactYoutube");
+  function hydrate(){
+    const data=get();
+    const url=String(data.contactYoutube||data.creativeYoutube||"").trim();
+    if(link){
+      link.href=url||"https://www.youtube.com/@Leyaenvadrouille";
+      link.dataset.configured=url?"true":"false";
+    }
+    if(input && input.value!==url) input.value=url;
+  }
+  if(input) input.addEventListener("input",()=>{
+    const data=get();
+    data.contactYoutube=input.value.trim();
+    data.creativeYoutube=input.value.trim();
+    put(data); hydrate();
+  });
+  hydrate();
+  setTimeout(hydrate,400);
+})();
+
