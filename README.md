@@ -1,25 +1,9 @@
-# Léa Spagnuolo — Portfolio musique & festivals (V5)
+# Portfolio festivals — V7
 
-## Fichiers
-- `index.html`
-- `styles.css`
-- `app.js`
-- `CV_Lea_Spagnuolo.pdf`
-- `Media/` : dossier à ajouter avec les photos et vidéos originales.
-
-## Identité visuelle
-Ce portfolio possède une identité indépendante de CHERRY LINE / motorsport.
-Palette : rose fluo `#FF39B8`, rose pastel `#F4A9CA`, olive `#78813B`,
-vert pastel `#B8C49A`, noir `#111111`, beige `#E9E1D2` et blanc.
-Direction : énergie festival, affiches, stickers, compositions en collage,
-typographie expressive et contrastes francs. Aucun bordeaux, rouge cerise
-ou code visuel motorsport.
-
-## Médias
-Les médias conservent leur format d'origine et ne sont pas recadrés de force.
-Ajoute le dossier `Media/` à la racine du projet en conservant les noms de
-fichiers attendus par `app.js`.
+Version de correction visuelle : proportions revues sur desktop, tablette et mobile ; barre de navigation claire avec contraste renforcé ; rose fluorescent éclairci ; éléments replacés dans le flux pour limiter les chevauchements.
 
 ## Mise en ligne
-Téléverse le contenu du dossier à la racine d'un dépôt GitHub distinct,
-puis active GitHub Pages depuis `main` et `/(root)`.
+
+Décompresser cette archive et déposer `index.html`, `styles.css`, `app.js`, `CV_Lea_Spagnuolo.pdf` ainsi que le dossier `Media/` à la racine du site. Le dossier `Media/` n'est pas inclus dans cette archive : reprendre le dossier média original sans renommer ses fichiers.
+
+Le site utilise `styles.css` et `app.js` à la racine. Tester les versions ordinateur et mobile après avoir replacé les médias.
